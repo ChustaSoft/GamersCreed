@@ -1,0 +1,107 @@
+package gamerscreed.rocketstats.model.dto;
+
+import java.io.Serializable;
+import javax.persistence.*;
+import java.util.Date;
+
+
+/**
+ * The persistent class for the match_result_player database table.
+ * 
+ */
+@Entity
+@Table(name="match_result_player")
+@NamedQuery(name="MatchResultPlayer.findAll", query="SELECT m FROM MatchResultPlayer m")
+public class MatchResultPlayer implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@EmbeddedId
+	private MatchResultPlayerPK id;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="audit_date")
+	private Date auditDate;
+
+	@Column(name="audit_public_ip")
+	private String auditPublicIp;
+
+	//bi-directional many-to-one association to Match
+	@ManyToOne
+	@JoinColumn(name="id_match")
+	private Match match;
+
+	//bi-directional many-to-one association to Result
+	@ManyToOne
+	@JoinColumn(name="id_result")
+	private Result result;
+
+	//bi-directional many-to-one association to Player
+	@ManyToOne
+	@JoinColumn(name="id_player")
+	private Player player;
+
+	//uni-directional many-to-one association to Player
+	@ManyToOne
+	@JoinColumn(name="audit_user_id")
+	private Player auditUser;
+
+	public MatchResultPlayer() {
+	}
+
+	public MatchResultPlayerPK getId() {
+		return this.id;
+	}
+
+	public void setId(MatchResultPlayerPK id) {
+		this.id = id;
+	}
+
+	public Date getAuditDate() {
+		return this.auditDate;
+	}
+
+	public void setAuditDate(Date auditDate) {
+		this.auditDate = auditDate;
+	}
+
+	public String getAuditPublicIp() {
+		return this.auditPublicIp;
+	}
+
+	public void setAuditPublicIp(String auditPublicIp) {
+		this.auditPublicIp = auditPublicIp;
+	}
+
+	public Match getMatch() {
+		return this.match;
+	}
+
+	public void setMatch(Match match) {
+		this.match = match;
+	}
+
+	public Result getResult() {
+		return this.result;
+	}
+
+	public void setResult(Result result) {
+		this.result = result;
+	}
+
+	public Player getPlayer() {
+		return this.player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+
+	public Player getAuditUser() {
+		return this.auditUser;
+	}
+
+	public void setAuditUser(Player auditUser) {
+		this.auditUser = auditUser;
+	}
+
+}
