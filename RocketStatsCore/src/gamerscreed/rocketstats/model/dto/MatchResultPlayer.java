@@ -27,17 +27,17 @@ public class MatchResultPlayer implements Serializable {
 
 	//bi-directional many-to-one association to Match
 	@ManyToOne
-	@JoinColumn(name="id_match")
+	@JoinColumn(name="id_match", insertable=false, updatable=false)
 	private Match match;
 
 	//bi-directional many-to-one association to Result
 	@ManyToOne
-	@JoinColumn(name="id_result")
+	@JoinColumn(name="id_result", insertable=false, updatable=false)
 	private Result result;
 
 	//bi-directional many-to-one association to Player
 	@ManyToOne
-	@JoinColumn(name="id_player")
+	@JoinColumn(name="id_player", insertable=false, updatable=false)
 	private Player player;
 
 	//uni-directional many-to-one association to Player

@@ -10,14 +10,14 @@ public abstract class AbstractDAOLayer<T> {
 	protected EntityManager entityManager;
 	
 	/** The factory name. */
-	private final String FACTORY_NAME = "GamersCreedCore";
+	private final String FACTORY_NAME = "RocketStats";
 	
 	/**
-	 * Instantiates a new generic dao layer.
+	 * Instantiates a new generic DAO layer.
 	 */
 	public AbstractDAOLayer(){
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory(FACTORY_NAME);
-		this.entityManager = emf.createEntityManager();	
+		EntityManagerFactory tmpEntinyManagerFactory = Persistence.createEntityManagerFactory(FACTORY_NAME);
+		this.entityManager = tmpEntinyManagerFactory.createEntityManager();	
 	}
 		
 	/**
