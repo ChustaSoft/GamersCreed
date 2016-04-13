@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+	<persistence-unit name="RocketStats" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		
+		<class>gamerscreed.rocketstats.model.dto.Match</class>
+		<class>gamerscreed.rocketstats.model.dto.MatchResultPlayer</class>
+		<class>gamerscreed.rocketstats.model.dto.MatchResultPlayerPK</class>
+		<class>gamerscreed.rocketstats.model.dto.MatchType</class>
+		<class>gamerscreed.rocketstats.model.dto.Player</class>
+		<class>gamerscreed.rocketstats.model.dto.Result</class>
+		<class>gamerscreed.rocketstats.model.dto.Role</class>
+		<class>gamerscreed.rocketstats.model.dto.Team</class>
+		<class>gamerscreed.rocketstats.model.dto.Tournament</class>
+
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.user" value="chustasoft" />
+			<property name="javax.persistence.jdbc.password" value="chustaK4" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/cs_rocketstats" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.max_fetch_depth" value="3" />
+			<property name="show_sql" value="true"></property>
+		</properties>
+		
+	</persistence-unit>
+</persistence>
