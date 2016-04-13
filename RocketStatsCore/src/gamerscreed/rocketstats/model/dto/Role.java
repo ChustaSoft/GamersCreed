@@ -2,6 +2,9 @@ package gamerscreed.rocketstats.model.dto;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import gamerscreed.rocketstats.utilities.enums.RoleDefinition;
+
 import java.util.List;
 
 
@@ -11,7 +14,10 @@ import java.util.List;
  */
 @Entity
 @Table(name="roles")
-@NamedQuery(name="Role.findAll", query="SELECT r FROM Role r")
+@NamedQueries({
+	@NamedQuery(name = "Role.findAll", query = "SELECT r FROM Role r"),
+	@NamedQuery(name = "Role.findByName", query = "SELECT r FROM Role r WHERE r.roleName = :roleName")
+})
 public class Role implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -30,6 +36,11 @@ public class Role implements Serializable {
 	private List<Player> players;
 
 	public Role() {
+	}
+
+	public Role(RoleDefinition aRoleDef, String aRoleDescription) {
+		this.setRoleName(aRoleDef.toString());
+		this.setRoleDescription(aRoleDescription);
 	}
 
 	public int getId() {

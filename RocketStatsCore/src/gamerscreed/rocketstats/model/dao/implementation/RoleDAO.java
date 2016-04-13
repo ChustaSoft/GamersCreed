@@ -1,0 +1,18 @@
+package gamerscreed.rocketstats.model.dao.implementation;
+
+import javax.persistence.TypedQuery;
+
+import gamerscreed.rocketstats.model.dao.AbstractDAOLayer;
+import gamerscreed.rocketstats.model.dto.Role;
+import gamerscreed.rocketstats.utilities.enums.RoleDefinition;
+
+public class RoleDAO extends AbstractDAOLayer<Role> {
+
+	public Role getRoleByRoleName(RoleDefinition aRoleDefinition){
+		TypedQuery<Role> query = this.entityManager.createNamedQuery("Role.findByName", Role.class);
+		query.setParameter("roleName", aRoleDefinition.toString());
+		
+		return query.getSingleResult();
+	}
+	
+}

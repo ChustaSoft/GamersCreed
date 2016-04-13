@@ -12,7 +12,10 @@ import java.util.List;
  */
 @Entity
 @Table(name="players")
-@NamedQuery(name="Player.findAll", query="SELECT p FROM Player p")
+@NamedQueries({
+	@NamedQuery(name = "Player.findAll", query = "SELECT p FROM Player p"),
+	@NamedQuery(name = "Player.findByUsername", query = "SELECT p FROM Player p WHERE p.username = :username")
+})
 public class Player implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -20,10 +23,13 @@ public class Player implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
+	@Column(nullable=false)
 	private String name;
 
+	@Column(nullable=false)
 	private String password;
 
+	@Column(nullable=false)
 	private String username;
 
 	//bi-directional many-to-one association to MatchResultPlayer
@@ -32,7 +38,7 @@ public class Player implements Serializable {
 
 	//bi-directional many-to-one association to Role
 	@ManyToOne
-	@JoinColumn(name="id_role")
+	@JoinColumn(name="id_role", nullable=false)
 	private Role role;
 
 	//bi-directional many-to-many association to Team
@@ -55,7 +61,8 @@ public class Player implements Serializable {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		if(!name.matches(".*\\d.*"))
+			this.name = name;
 	}
 
 	public String getPassword() {
@@ -63,7 +70,10 @@ public class Player implements Serializable {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		if(password.length() > 8)
+			this.password = password;
+		else
+			this.password = null;
 	}
 
 	public String getUsername() {
@@ -71,7 +81,8 @@ public class Player implements Serializable {
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		if(!username.contains(" "))
+			this.username = username;
 	}
 
 	public List<MatchResultPlayer> getMatchResultPlayers() {
