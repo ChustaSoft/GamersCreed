@@ -6,13 +6,16 @@ import gamerscreed.rocketstats.model.dto.Team;
 
 public class TeamTestHelper {
 	
+	
 	PlayerTestHelper playerTestHelper = null;
 	PlayerDAO playerTestDao = null;
+	
 	
 	public TeamTestHelper() {
 		playerTestHelper = new PlayerTestHelper();
 		playerTestDao = new PlayerDAO();
 	}
+	
 	
 	public Team getTeamOK(){
 		Player tmpPlayer = playerTestHelper.getPlayerOK();

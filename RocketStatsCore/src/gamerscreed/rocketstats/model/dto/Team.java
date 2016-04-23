@@ -19,7 +19,6 @@ import gamerscreed.rocketstats.model.dao.annotations.AtLeastOneNotNull;
 
 /**
  * The persistent class for the teams database table.
- * 
  */
 @Entity
 @Table(name="teams")

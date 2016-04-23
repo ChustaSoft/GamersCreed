@@ -19,11 +19,13 @@ import gamerscreed.rocketstats.model.test.utilities.TeamTestHelper;
 
 public class TeamDAOTest {
 	
+	
 	private static Validator VALIDATOR;
 	
 	TeamTestHelper teamTestHelper = null;
 	TeamDAO teamDaoTest = null;
 
+	
 	@Before
 	public void initTestClass() {
 		teamDaoTest = new TeamDAO();
@@ -36,6 +38,7 @@ public class TeamDAOTest {
 	public void endTestClass() {
 		
 	}
+	
 
 	@Test
 	public void savingRightTeam() {
