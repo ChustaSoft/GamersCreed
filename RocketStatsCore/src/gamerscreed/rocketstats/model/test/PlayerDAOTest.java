@@ -1,25 +1,23 @@
 package gamerscreed.rocketstats.model.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import gamerscreed.rocketstats.model.dao.implementation.PlayerDAO;
-import gamerscreed.rocketstats.model.dao.implementation.RoleDAO;
 import gamerscreed.rocketstats.model.dto.Player;
-import gamerscreed.rocketstats.model.dto.Role;
-import gamerscreed.rocketstats.utilities.enums.RoleDefinition;
+import gamerscreed.rocketstats.model.test.utilities.PlayerTestHelper;
 
 public class PlayerDAOTest {
 
-	private RoleDAO testRoleDao = null;
+	private PlayerTestHelper testPlayerHelper = null;
 	private PlayerDAO testPlayerDao = null;
 	
 	@Before
 	public void initTestClass(){
-		testRoleDao = new RoleDAO();
+		testPlayerHelper = new PlayerTestHelper();
 		testPlayerDao = new PlayerDAO();
 	}
 	
@@ -30,41 +28,35 @@ public class PlayerDAOTest {
 	
 	@Test
 	public void savingRightPlayer() {
-		Role tmpRole = testRoleDao.getRoleByRoleName(RoleDefinition.ESTANDARD);
-				
-		Player testPlayer = new Player();
-		testPlayer.setRole(tmpRole);
-		testPlayer.setName("TEST PLAYER");
-		testPlayer.setPassword("PWD123456");
-		testPlayer.setUsername("TESTUSER");
+		Player testPlayer = testPlayerHelper.getPlayerOK();
 		
-		assertEquals("Inserting right Player", true, testPlayerDao.updateEntity(testPlayer));		
+		assertEquals("Inserting right Player", true, testPlayerDao.saveEntity(testPlayer));
 	}
 	
 	@Test
 	public void savingPlayerWithoutRole() {		
-		Player testPlayer = new Player();
-		testPlayer.setName("TEST PLAYER");
-		testPlayer.setUsername("TESTUSER");
+		Player testPlayer = testPlayerHelper.getPlayerKO_WithoutRole();
 		
-		assertEquals("Inserting wrong Player", false, testPlayerDao.updateEntity(testPlayer));	
+		assertEquals("Inserting wrong Player", false, testPlayerDao.saveEntity(testPlayer));
 	}
 	
 	@Test
-	public void savingWrongPlayer() {		
-		Role tmpRole = testRoleDao.getRoleByRoleName(RoleDefinition.ESTANDARD);
+	public void savingWrongPlayer_BadPassword() {		
+		Player testPlayer = testPlayerHelper.getPlayerKO_BadPassword();
 		
-		Player testPlayer = new Player();
-		testPlayer.setRole(tmpRole);
-		testPlayer.setPassword("PWD");
-		testPlayer.setUsername("TEST USERNAME");
+		assertEquals("Inserting wrong Player", false, testPlayerDao.saveEntity(testPlayer));
+	}
+	
+	@Test
+	public void savingWrongPlayer_BadUsername() {		
+		Player testPlayer = testPlayerHelper.getPlayerKO_BadUsername();
 		
-		assertEquals("Inserting wrong Player", false, testPlayerDao.updateEntity(testPlayer));	
+		assertEquals("Inserting wrong Player", false, testPlayerDao.saveEntity(testPlayer));
 	}
 	
 	@Test
 	public void updatingRightPlayer() {		
-		Player testPlayer = testPlayerDao.getByUsername("TESTUSER");
+		Player testPlayer = testPlayerDao.getByUsername(PlayerTestHelper.TEST_USERNAME);
 		String tmpUpdatedName = "UPDATED NAME";
 		
 		testPlayer.setName(tmpUpdatedName);
@@ -78,7 +70,7 @@ public class PlayerDAOTest {
 	
 	@Test
 	public void updatingWrongPlayer() {		
-		Player testPlayer = testPlayerDao.getByUsername("TESTUSER");
+		Player testPlayer = testPlayerDao.getByUsername(PlayerTestHelper.TEST_USERNAME);
 		String tmpUpdatedPwd = "";
 		
 		testPlayer.setPassword(tmpUpdatedPwd);
@@ -88,7 +80,7 @@ public class PlayerDAOTest {
 	
 	@Test
 	public void removingPlayer() {
-		Player testPlayer = testPlayerDao.getByUsername("TESTUSER");
+		Player testPlayer = testPlayerDao.getByUsername(PlayerTestHelper.TEST_USERNAME);
 		
 		assertEquals("Updating wright player", true, testPlayerDao.removeEntity(testPlayer));
 	}
