@@ -12,6 +12,8 @@
 		<class>gamerscreed.rocketstats.model.dto.Role</class>
 		<class>gamerscreed.rocketstats.model.dto.Team</class>
 		<class>gamerscreed.rocketstats.model.dto.Tournament</class>
+		
+		<validation-mode>AUTO</validation-mode>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
@@ -22,6 +24,6 @@
 			<property name="hibernate.max_fetch_depth" value="3" />
 			<property name="show_sql" value="true"></property>
 		</properties>
-		
+						
 	</persistence-unit>
 </persistence>

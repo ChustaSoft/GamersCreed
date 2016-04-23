@@ -24,7 +24,8 @@ public abstract class AbstractDAOLayer<T> {
 	 * Begin transaction.
 	 */
 	protected void beginTransaction(){
-		entityManager.getTransaction().begin();
+		if(!entityManager.getTransaction().isActive())
+			entityManager.getTransaction().begin();
 	}
 	
 	/**
@@ -43,6 +44,7 @@ public abstract class AbstractDAOLayer<T> {
 			return true;
 		}
 		catch(Exception e){
+			entityManager.close();
 			return false;
 		}
 	}
@@ -55,6 +57,7 @@ public abstract class AbstractDAOLayer<T> {
 			return true;
 		}
 		catch(Exception e){
+			entityManager.close();
 			return false;
 		}
 	}
@@ -67,6 +70,7 @@ public abstract class AbstractDAOLayer<T> {
 			return true;			
 		}
 		catch(Exception e){
+			entityManager.close();
 			return false;
 		}
 	}
