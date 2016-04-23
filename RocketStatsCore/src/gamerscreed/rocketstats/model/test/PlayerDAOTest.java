@@ -12,8 +12,10 @@ import gamerscreed.rocketstats.model.test.utilities.PlayerTestHelper;
 
 public class PlayerDAOTest {
 
+	
 	private PlayerTestHelper testPlayerHelper = null;
 	private PlayerDAO testPlayerDao = null;
+	
 	
 	@Before
 	public void initTestClass(){
@@ -25,6 +27,7 @@ public class PlayerDAOTest {
 	public void endTestClass(){
 		
 	}
+	
 	
 	@Test
 	public void savingRightPlayer() {

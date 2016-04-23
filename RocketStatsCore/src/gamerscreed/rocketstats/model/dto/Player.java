@@ -20,7 +20,6 @@ import javax.validation.constraints.Size;
 
 /**
  * The persistent class for the players database table.
- * 
  */
 @Entity
 @Table(name="players")

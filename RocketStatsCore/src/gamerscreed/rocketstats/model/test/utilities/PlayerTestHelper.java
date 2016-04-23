@@ -7,12 +7,15 @@ import gamerscreed.rocketstats.utilities.enums.RoleDefinition;
 
 public class PlayerTestHelper {
 	
+	
 	private RoleDAO testRoleDao = null;
 	public static String TEST_USERNAME = "TESTUSER";
+	
 	
 	public PlayerTestHelper(){
 		testRoleDao = new RoleDAO();
 	}
+	
 	
 	public Player getPlayerOK(){
 		Role tmpRole = testRoleDao.getRoleByRoleName(RoleDefinition.ESTANDARD);
