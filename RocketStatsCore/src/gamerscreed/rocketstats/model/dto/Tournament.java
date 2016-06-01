@@ -2,6 +2,10 @@ package gamerscreed.rocketstats.model.dto;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import gamerscreed.rocketstats.model.dao.annotations.AtLeastOneNotNull;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -29,6 +33,7 @@ public class Tournament implements Serializable {
 	private Date startDate;
 
 	//bi-directional many-to-one association to Match
+	@AtLeastOneNotNull
 	@OneToMany(mappedBy="tournament")
 	private List<Match> matches;
 
@@ -65,6 +70,8 @@ public class Tournament implements Serializable {
 	}
 
 	public List<Match> getMatches() {
+		if(this.matches == null)
+			this.matches = new ArrayList<Match>();
 		return this.matches;
 	}
 
