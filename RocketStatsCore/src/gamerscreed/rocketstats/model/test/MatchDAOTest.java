@@ -5,7 +5,7 @@ import org.junit.Test;
 public class MatchDAOTest {
 
 	@Test
-	public void savingRightMatch() {		
+	public void savingRightMatch() {
 	
 	}
 	
