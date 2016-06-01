@@ -1,5 +1,7 @@
 package gamerscreed.rocketstats.model.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -40,6 +42,21 @@ public abstract class AbstractDAOLayer<T> {
 		try{
 			this.beginTransaction();
 			this.entityManager.persist(anObject);
+			this.finishtTransaction();
+			return true;
+		}
+		catch(Exception e){
+			entityManager.close();
+			return false;
+		}
+	}
+	
+	public boolean saveEntities(List<T> anObjectList){
+		try{
+			this.beginTransaction();
+			for(Object iObject : anObjectList){
+				this.entityManager.persist(iObject);
+			}
 			this.finishtTransaction();
 			return true;
 		}
