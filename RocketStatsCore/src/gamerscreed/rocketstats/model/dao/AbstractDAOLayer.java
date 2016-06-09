@@ -91,4 +91,6 @@ public abstract class AbstractDAOLayer<T> {
 			return false;
 		}
 	}
+	
+	public abstract T getById(int anId);
 }

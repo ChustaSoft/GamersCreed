@@ -5,4 +5,9 @@ import gamerscreed.rocketstats.model.dto.Team;
 
 public class TeamDAO extends AbstractDAOLayer<Team> {
 
+	@Override
+	public Team getById(int anId) {
+		return this.entityManager.find(Team.class, anId);
+	}
+
 }

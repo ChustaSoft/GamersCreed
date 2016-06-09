@@ -14,5 +14,10 @@ public class RoleDAO extends AbstractDAOLayer<Role> {
 		
 		return query.getSingleResult();
 	}
+
+	@Override
+	public Role getById(int anId) {
+		return this.entityManager.find(Role.class, anId);
+	}
 	
 }

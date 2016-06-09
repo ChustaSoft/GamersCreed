@@ -5,4 +5,9 @@ import gamerscreed.rocketstats.model.dto.MatchResultPlayer;
 
 public class MatchResultPlayerDAO extends AbstractDAOLayer<MatchResultPlayer> {
 
+	@Override
+	public MatchResultPlayer getById(int anId) {
+		return this.entityManager.find(MatchResultPlayer.class, anId);
+	}
+
 }
