@@ -15,6 +15,7 @@ import org.junit.Test;
 
 import gamerscreed.rocketstats.model.dao.implementation.TeamDAO;
 import gamerscreed.rocketstats.model.dto.Team;
+import gamerscreed.rocketstats.model.test.utilities.PlayerTestHelper;
 import gamerscreed.rocketstats.model.test.utilities.TeamTestHelper;
 
 public class TeamDAOTest {
@@ -42,7 +43,7 @@ public class TeamDAOTest {
 
 	@Test
 	public void savingRightTeam() {
-		Team testTeam = teamTestHelper.getTeamOK();
+		Team testTeam = teamTestHelper.getTeamOK(PlayerTestHelper.TEST_USERNAME1);
 		
 		Set<ConstraintViolation<Team>> constraintViolations = VALIDATOR.validate(testTeam);
 		

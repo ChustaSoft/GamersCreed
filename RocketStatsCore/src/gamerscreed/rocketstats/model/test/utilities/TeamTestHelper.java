@@ -17,11 +17,11 @@ public class TeamTestHelper {
 	}
 	
 	
-	public Team getTeamOK(){
-		Player tmpPlayer = playerTestHelper.getPlayerOK();
+	public Team getTeamOK(String aPlayerForTeam){
+		Player tmpPlayer = playerTestHelper.getPlayerOK(aPlayerForTeam);
 		playerTestDao.saveEntity(tmpPlayer);
 		playerTestDao = new PlayerDAO();
-		tmpPlayer = playerTestDao.getByUsername(PlayerTestHelper.TEST_USERNAME);
+		tmpPlayer = playerTestDao.getByUsername(aPlayerForTeam);
 		
 		Team testTeam = new Team();
 		testTeam.addPlayer(tmpPlayer);

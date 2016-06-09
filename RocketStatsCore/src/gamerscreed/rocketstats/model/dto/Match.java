@@ -2,6 +2,8 @@ package gamerscreed.rocketstats.model.dto;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import java.util.Date;
 import java.util.List;
 

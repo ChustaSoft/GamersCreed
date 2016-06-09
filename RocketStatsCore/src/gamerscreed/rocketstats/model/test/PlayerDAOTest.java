@@ -31,21 +31,21 @@ public class PlayerDAOTest {
 	
 	@Test
 	public void savingRightPlayer() {
-		Player testPlayer = testPlayerHelper.getPlayerOK();
+		Player testPlayer = testPlayerHelper.getPlayerOK(PlayerTestHelper.TEST_USERNAME1);
 		
 		assertEquals("Inserting right Player", true, testPlayerDao.saveEntity(testPlayer));
 	}
 	
 	@Test
 	public void savingPlayerWithoutRole() {		
-		Player testPlayer = testPlayerHelper.getPlayerKO_WithoutRole();
+		Player testPlayer = testPlayerHelper.getPlayerKO_WithoutRole(PlayerTestHelper.TEST_USERNAME1);
 		
 		assertEquals("Inserting wrong Player", false, testPlayerDao.saveEntity(testPlayer));
 	}
 	
 	@Test
 	public void savingWrongPlayer_BadPassword() {		
-		Player testPlayer = testPlayerHelper.getPlayerKO_BadPassword();
+		Player testPlayer = testPlayerHelper.getPlayerKO_BadPassword(PlayerTestHelper.TEST_USERNAME1);
 		
 		assertEquals("Inserting wrong Player", false, testPlayerDao.saveEntity(testPlayer));
 	}
@@ -59,7 +59,7 @@ public class PlayerDAOTest {
 	
 	@Test
 	public void updatingRightPlayer() {		
-		Player testPlayer = testPlayerDao.getByUsername(PlayerTestHelper.TEST_USERNAME);
+		Player testPlayer = testPlayerDao.getByUsername(PlayerTestHelper.TEST_USERNAME1);
 		String tmpUpdatedName = "UPDATED NAME";
 		
 		testPlayer.setName(tmpUpdatedName);
@@ -73,7 +73,7 @@ public class PlayerDAOTest {
 	
 	@Test
 	public void updatingWrongPlayer() {		
-		Player testPlayer = testPlayerDao.getByUsername(PlayerTestHelper.TEST_USERNAME);
+		Player testPlayer = testPlayerDao.getByUsername(PlayerTestHelper.TEST_USERNAME1);
 		String tmpUpdatedPwd = "";
 		
 		testPlayer.setPassword(tmpUpdatedPwd);
@@ -83,7 +83,7 @@ public class PlayerDAOTest {
 	
 	@Test
 	public void removingPlayer() {
-		Player testPlayer = testPlayerDao.getByUsername(PlayerTestHelper.TEST_USERNAME);
+		Player testPlayer = testPlayerDao.getByUsername(PlayerTestHelper.TEST_USERNAME1);
 		
 		assertEquals("Updating wright player", true, testPlayerDao.removeEntity(testPlayer));
 	}

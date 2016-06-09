@@ -9,7 +9,8 @@ public class PlayerTestHelper {
 	
 	
 	private RoleDAO testRoleDao = null;
-	public static String TEST_USERNAME = "TESTUSER";
+	public static String TEST_USERNAME1 = "TESTUSER1";
+	public static String TEST_USERNAME2 = "TESTUSER2";
 	
 	
 	public PlayerTestHelper(){
@@ -17,14 +18,14 @@ public class PlayerTestHelper {
 	}
 	
 	
-	public Player getPlayerOK(){
+	public Player getPlayerOK(String aName){
 		Role tmpRole = testRoleDao.getRoleByRoleName(RoleDefinition.ESTANDARD);
 		
 		Player testPlayer = new Player();
 		testPlayer.setRole(tmpRole);
 		testPlayer.setName("TEST PLAYER");
 		testPlayer.setPassword("PWD123456");
-		testPlayer.setUsername(TEST_USERNAME);
+		testPlayer.setUsername(aName);
 		
 		return testPlayer;
 	}
@@ -40,21 +41,21 @@ public class PlayerTestHelper {
 		return testPlayer;
 	}
 	
-	public Player getPlayerKO_BadPassword(){
+	public Player getPlayerKO_BadPassword(String aName){
 		Role tmpRole = testRoleDao.getRoleByRoleName(RoleDefinition.ESTANDARD);
 		
 		Player testPlayer = new Player();
 		testPlayer.setRole(tmpRole);
 		testPlayer.setPassword("PWD");
-		testPlayer.setUsername(TEST_USERNAME);
+		testPlayer.setUsername(aName);
 		
 		return testPlayer;
 	}
 	
-	public Player getPlayerKO_WithoutRole(){
+	public Player getPlayerKO_WithoutRole(String aName){
 		Player testPlayer = new Player();
 		testPlayer.setName("TEST PLAYER");
-		testPlayer.setUsername(TEST_USERNAME);
+		testPlayer.setUsername(aName);
 		
 		return testPlayer;
 	}
