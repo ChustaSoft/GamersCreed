@@ -36,11 +36,13 @@ public class Match implements Serializable {
 
 	//bi-directional many-to-one association to Team
 	@ManyToOne
+	@NotNull
 	@JoinColumn(name="id_team_a")
 	private Team teamLocal;
 
 	//bi-directional many-to-one association to Team
 	@ManyToOne
+	@NotNull
 	@JoinColumn(name="id_team_b")
 	private Team teamVisitant;
 
