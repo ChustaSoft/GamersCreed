@@ -38,6 +38,13 @@ public class Result implements Serializable {
 	private List<MatchResultPlayer> matchResultPlayers;
 
 	public Result() {
+		this.assits = 0;
+		this.goals = 0;
+		this.mvp = 0;
+		this.points = 0;
+		this.safes = 0;
+		this.shots = 0;
+		this.winner = 0;
 	}
 
 	public int getId() {
@@ -96,12 +103,17 @@ public class Result implements Serializable {
 		this.shots = shots;
 	}
 
-	public byte getWinner() {
-		return this.winner;
+	public boolean isWinner() {
+		if(this.winner == 0)
+			return false;
+		else return true;
 	}
 
-	public void setWinner(byte winner) {
-		this.winner = winner;
+	public void setWinner(boolean isWinner) {
+		if(isWinner)
+			this.winner = (byte) 1;
+		else
+			this.winner = 0;
 	}
 
 	public List<MatchResultPlayer> getMatchResultPlayers() {

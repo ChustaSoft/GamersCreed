@@ -2,6 +2,8 @@ package gamerscreed.rocketstats.model.dto;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import java.util.Date;
 
 
@@ -27,21 +29,25 @@ public class MatchResultPlayer implements Serializable {
 
 	//bi-directional many-to-one association to Match
 	@ManyToOne
+	@NotNull
 	@JoinColumn(name="id_match", insertable=false, updatable=false)
 	private Match match;
 
 	//bi-directional many-to-one association to Result
 	@ManyToOne
+	@NotNull
 	@JoinColumn(name="id_result", insertable=false, updatable=false)
 	private Result result;
 
 	//bi-directional many-to-one association to Player
 	@ManyToOne
+	@NotNull
 	@JoinColumn(name="id_player", insertable=false, updatable=false)
 	private Player player;
 
 	//uni-directional many-to-one association to Player
 	@ManyToOne
+	@NotNull
 	@JoinColumn(name="audit_user_id")
 	private Player auditUser;
 
