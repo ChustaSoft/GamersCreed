@@ -34,7 +34,12 @@ public class MatchResultPlayerDAOTest implements CoreDaoTestInterface<MatchResul
 	}
 	
 	@Test
-	public void savingWrongMatchResultPlayer() {		
+	public void savingWrongMatchResultPlayer() {
+		MatchResultPlayer testMatchResultPlayer = matchTestHelper.getMatchResultPlayer_KO();
+		
+		boolean tmpResponse = matchTestHelper.saveTestMatchResultPlayer(testMatchResultPlayer);
+		
+		assertEquals("Saving wrong MatchResultPlayer", false, tmpResponse);
 		
 	}
 

@@ -35,7 +35,6 @@ public class MatchTestHelper {
 	}
 	
 	public MatchResultPlayer getMatchResultPlayer_OK(){
-		MatchResultPlayer testResultForMatchAndPlayer = new MatchResultPlayer();
 		Match testMatch = matchDao.getById(1);
 		
 		Result testResult = new Result();
@@ -44,12 +43,17 @@ public class MatchTestHelper {
 		
 		Player testPlayer = playerDao.getById(1);
 		
+		MatchResultPlayer testResultForMatchAndPlayer = new MatchResultPlayer();		
 		testResultForMatchAndPlayer.setMatch(testMatch);
 		testResultForMatchAndPlayer.setPlayer(testPlayer);
 		testResultForMatchAndPlayer.setAuditUser(testPlayer);
 		testResultForMatchAndPlayer.setResult(testResult);
 		
 		return testResultForMatchAndPlayer;
+	}
+	
+	public MatchResultPlayer getMatchResultPlayer_KO(){
+		return new MatchResultPlayer();
 	}
 	
 	public Match getMatch_KO(){		

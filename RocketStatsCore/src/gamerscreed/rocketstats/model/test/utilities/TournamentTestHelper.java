@@ -5,13 +5,17 @@ import java.util.Calendar;
 import java.util.List;
 
 import gamerscreed.rocketstats.model.dao.implementation.MatchDAO;
+import gamerscreed.rocketstats.model.dao.implementation.TournamentDAO;
 import gamerscreed.rocketstats.model.dto.Match;
 import gamerscreed.rocketstats.model.dto.Tournament;
 
 public class TournamentTestHelper {
 	
-	MatchDAO matchDao = new MatchDAO();
+	//Attributes
+	TournamentDAO testTournamentDAO = null;
+	MatchDAO testMJatchDao = new MatchDAO();
 	
+	//Public methods
 	public Tournament getTournament_OK(){		
 		Tournament testTournament = new Tournament();
 		
@@ -19,7 +23,7 @@ public class TournamentTestHelper {
 		for (int i = 0; i < 10; i++) {
 			tmpMatches.add(new Match());			
 		}
-		matchDao.saveEntities(tmpMatches);
+		testMJatchDao.saveEntities(tmpMatches);
 		testTournament.getMatches().addAll(tmpMatches);
 		
 		Calendar tmpCal = Calendar.getInstance();
@@ -31,8 +35,11 @@ public class TournamentTestHelper {
 	}
 	
 	public Tournament getTournament_KO(){
-				
 		return new Tournament();
+	}
+	
+	public boolean saveTestTournament(Tournament aTournament){
+		return testTournamentDAO.saveEntity(aTournament);
 	}
 
 }

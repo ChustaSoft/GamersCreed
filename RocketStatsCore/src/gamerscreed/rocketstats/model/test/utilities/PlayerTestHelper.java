@@ -1,5 +1,6 @@
 package gamerscreed.rocketstats.model.test.utilities;
 
+import gamerscreed.rocketstats.model.dao.implementation.PlayerDAO;
 import gamerscreed.rocketstats.model.dao.implementation.RoleDAO;
 import gamerscreed.rocketstats.model.dto.Player;
 import gamerscreed.rocketstats.model.dto.Role;
@@ -7,17 +8,15 @@ import gamerscreed.rocketstats.utilities.enums.RoleDefinition;
 
 public class PlayerTestHelper {
 	
-	
-	private RoleDAO testRoleDao = null;
+	//Public static attributes
 	public static String TEST_USERNAME1 = "TESTUSER1";
 	public static String TEST_USERNAME2 = "TESTUSER2";
 	
-	
-	public PlayerTestHelper(){
-		testRoleDao = new RoleDAO();
-	}
-	
-	
+	//Attributes
+	private PlayerDAO testPlayerDao =  new PlayerDAO();;
+	private RoleDAO testRoleDao = new RoleDAO();
+		
+	//Public methods
 	public Player getPlayerOK(String aName){
 		Role tmpRole = testRoleDao.getRoleByRoleName(RoleDefinition.ESTANDARD);
 		
@@ -60,4 +59,23 @@ public class PlayerTestHelper {
 		return testPlayer;
 	}
 
+	public boolean saveTestPlayer(Player aTestPlayer) {
+		return testPlayerDao.saveEntity(aTestPlayer);
+	}
+	
+	public boolean updateTestEntity(Player aTestPlayer){
+		return testPlayerDao.updateEntity(aTestPlayer);
+	}
+	
+	public Player getTestPlayerByUserame(String anUsername){
+		return testPlayerDao.getByUsername(anUsername);
+	}
+
+	public Player getTestPlayerById(int anId){
+		return testPlayerDao.getById(anId);
+	}
+	
+	public boolean removeTestPlayer(Player aPlayer){
+		return testPlayerDao.removeEntity(aPlayer);
+	}
 }
