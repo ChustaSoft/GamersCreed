@@ -8,9 +8,10 @@ import org.junit.Test;
 
 import gamerscreed.rocketstats.model.dao.implementation.TournamentDAO;
 import gamerscreed.rocketstats.model.dto.Tournament;
+import gamerscreed.rocketstats.model.test.interfaces.CoreDaoTestInterface;
 import gamerscreed.rocketstats.model.test.utilities.TournamentTestHelper;
 
-public class TournamentDAOTest {
+public class TournamentDAOTest implements CoreDaoTestInterface<Tournament>{
 	
 	TournamentDAO tournamentDAO = null;
 	TournamentTestHelper testTournametTestHelper = null;

@@ -8,9 +8,10 @@ import org.junit.Test;
 
 import gamerscreed.rocketstats.model.dao.implementation.PlayerDAO;
 import gamerscreed.rocketstats.model.dto.Player;
+import gamerscreed.rocketstats.model.test.interfaces.CoreDaoTestInterface;
 import gamerscreed.rocketstats.model.test.utilities.PlayerTestHelper;
 
-public class PlayerDAOTest {
+public class PlayerDAOTest implements CoreDaoTestInterface<Player>{
 
 	
 	private PlayerTestHelper testPlayerHelper = null;

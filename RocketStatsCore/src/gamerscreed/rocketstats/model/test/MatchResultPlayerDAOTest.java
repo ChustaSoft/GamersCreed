@@ -1,9 +1,23 @@
 package gamerscreed.rocketstats.model.test;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
-public class MatchResultPlayerDAOTest {
+import gamerscreed.rocketstats.model.dto.MatchResultPlayer;
+import gamerscreed.rocketstats.model.test.interfaces.CoreDaoTestInterface;
 
+public class MatchResultPlayerDAOTest implements CoreDaoTestInterface<MatchResultPlayer>{
+
+	@Before
+	public void initTestClass(){
+	}
+	
+	@After
+	public void endTestClass(){
+		
+	}
+	
 	@Test
 	public void savingRightMatchResultPlayer() {		
 	
@@ -11,26 +25,6 @@ public class MatchResultPlayerDAOTest {
 	
 	@Test
 	public void savingWrongMatchResultPlayer() {		
-		
-	}
-	
-	@Test
-	public void updatingRightMatchResultPlayer() {		
-	
-	}
-	
-	@Test
-	public void updatingWrongMatchResultPlayer() {		
-		
-	}
-	
-	@Test
-	public void removingMatchResultPlayer() {		
-		
-	}
-	
-	@Test
-	public void gettingAllMatchResultPlayers() {		
 		
 	}
 

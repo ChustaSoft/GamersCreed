@@ -15,10 +15,11 @@ import org.junit.Test;
 
 import gamerscreed.rocketstats.model.dao.implementation.TeamDAO;
 import gamerscreed.rocketstats.model.dto.Team;
+import gamerscreed.rocketstats.model.test.interfaces.CoreDaoTestInterface;
 import gamerscreed.rocketstats.model.test.utilities.PlayerTestHelper;
 import gamerscreed.rocketstats.model.test.utilities.TeamTestHelper;
 
-public class TeamDAOTest {
+public class TeamDAOTest implements CoreDaoTestInterface<Team>{
 	
 	
 	private static Validator VALIDATOR;
