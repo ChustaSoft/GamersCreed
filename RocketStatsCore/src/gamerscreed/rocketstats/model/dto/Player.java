@@ -39,7 +39,7 @@ public class Player implements Serializable {
 
 	@Column(nullable=false)
 	@Size(min = 6, max = 20)
-	private String password;
+	private String token;
 
 	@Column(nullable=false)
 	private String username;
@@ -77,12 +77,12 @@ public class Player implements Serializable {
 			this.name = name;
 	}
 
-	public String getPassword() {
-		return this.password;
+	public String getToken() {
+		return this.token;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setToken(String token) {
+		this.token = token;
 	}
 
 	public String getUsername() {
