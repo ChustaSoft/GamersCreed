@@ -22,9 +22,7 @@ public class PlayerDAOTest implements CoreDaoTestInterface<Player>{
 	}
 	
 	@After
-	public void endTestClass(){
-		
-	}
+	public void endTestClass(){	}
 	
 	
 	@Test

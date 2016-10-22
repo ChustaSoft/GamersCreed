@@ -18,9 +18,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-/**
- * The persistent class for the players database table.
- */
 @Entity
 @Table(name="players")
 @NamedQueries({
@@ -29,6 +26,7 @@ import javax.validation.constraints.Size;
 	@NamedQuery(name = "Player.findByUsernameAndToken", query = "SELECT p FROM Player p WHERE p.username = :username AND p.password = :usertoken")
 })
 public class Player implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id

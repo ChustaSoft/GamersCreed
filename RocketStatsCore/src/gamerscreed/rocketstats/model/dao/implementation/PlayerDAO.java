@@ -26,4 +26,5 @@ public class PlayerDAO extends AbstractDAOLayer<Player> {
 	public Player getById(int anId) {
 		return this.entityManager.find(Player.class, anId);
 	}
+	
 }

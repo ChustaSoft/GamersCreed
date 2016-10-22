@@ -11,11 +11,15 @@ public class PlayerTestHelper {
 	//Public static attributes
 	public static String TEST_USERNAME1 = "TESTUSER1";
 	public static String TEST_USERNAME2 = "TESTUSER2";
+	//
+	
 	
 	//Attributes
 	private PlayerDAO testPlayerDao =  new PlayerDAO();;
 	private RoleDAO testRoleDao = new RoleDAO();
-		
+	//
+	
+	
 	//Public methods
 	public Player getPlayerOK(String aName){
 		Role tmpRole = testRoleDao.getRoleByRoleName(RoleDefinition.ESTANDARD);
@@ -78,4 +82,6 @@ public class PlayerTestHelper {
 	public boolean removeTestPlayer(Player aPlayer){
 		return testPlayerDao.removeEntity(aPlayer);
 	}
+	//
+	
 }

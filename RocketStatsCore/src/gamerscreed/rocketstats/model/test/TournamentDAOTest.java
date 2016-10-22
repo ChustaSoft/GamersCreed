@@ -20,9 +20,7 @@ public class TournamentDAOTest implements CoreDaoTestInterface<Tournament>{
 	}
 	
 	@After
-	public void endTestClass(){
-
-	}
+	public void endTestClass(){	}
 
 	@Test
 	public void savingRightTournament() {		
