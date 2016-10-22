@@ -9,4 +9,5 @@ import gamerscreed.rocketstats.model.dto.Tournament;
 public interface TournamentBusiness {
 
 	Tournament generateTournament(List<Player> aPlayerList, Date aBeginDate);
+	
 }

@@ -14,8 +14,7 @@ public class TournamentBusinessLayer implements TournamentBusiness{
 
 	@Override
 	public Tournament generateTournament(List<Player> aPlayerList, Date aBeginDate) {
-		
-		return null;
+				return null;
 	}
 
 }
