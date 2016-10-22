@@ -23,7 +23,7 @@ public class PlayerTestHelper {
 		Player testPlayer = new Player();
 		testPlayer.setRole(tmpRole);
 		testPlayer.setName("TEST PLAYER");
-		testPlayer.setToken("PWD123456");
+		testPlayer.setPassword("PWD123456");
 		testPlayer.setUsername(aName);
 		
 		return testPlayer;
@@ -34,7 +34,7 @@ public class PlayerTestHelper {
 		
 		Player testPlayer = new Player();
 		testPlayer.setRole(tmpRole);
-		testPlayer.setToken("PWD123456");
+		testPlayer.setPassword("PWD123456");
 		testPlayer.setUsername("TEST USERNAME");
 		
 		return testPlayer;
@@ -45,7 +45,7 @@ public class PlayerTestHelper {
 		
 		Player testPlayer = new Player();
 		testPlayer.setRole(tmpRole);
-		testPlayer.setToken("PWD");
+		testPlayer.setPassword("PWD");
 		testPlayer.setUsername(aName);
 		
 		return testPlayer;

@@ -17,7 +17,7 @@ public class PlayerDAO extends AbstractDAOLayer<Player> {
 	public Player getByUsernameAndToken(String aUsername, String aToken){
 		TypedQuery<Player> query = this.entityManager.createNamedQuery("Player.findByUsernameAndToken", Player.class);
 		query.setParameter("username", aUsername);
-		query.setParameter("userntokename", aToken);
+		query.setParameter("usertoken", aToken);
 		
 		return query.getSingleResult();
 	}
