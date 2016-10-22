@@ -28,5 +28,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/RocketStatsCore"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/GamersCreedShared"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
