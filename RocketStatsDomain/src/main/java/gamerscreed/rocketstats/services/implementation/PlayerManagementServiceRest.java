@@ -4,8 +4,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import gamerscreed.profiler.structures.DataSender;
 import gamerscreed.rocketstats.model.dao.implementation.PlayerDAO;
-import gamerscreed.rocketstats.model.dto.Player;
 import gamerscreed.rocketstats.services.PlayerManagementService;
 
 @RestController
@@ -20,8 +20,12 @@ public class PlayerManagementServiceRest implements PlayerManagementService {
 
 	@Override
 	@RequestMapping("/login")
-	public Player loginPlayer(@RequestParam(value="username") String aUsername, @RequestParam(value="usertoken") String aToken){
-		return  playerDao.getByUsernameAndToken(aUsername, aToken);
+	public DataSender loginPlayer(@RequestParam(value="username") String aUsername, @RequestParam(value="usertoken") String aToken){
+		DataSender tmpDataSender = new DataSender();
+		
+		tmpDataSender.setDataObject(playerDao.getByUsernameAndToken(aUsername, aToken));
+		
+		return  tmpDataSender;
 	}
 
 }
