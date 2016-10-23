@@ -10,6 +10,12 @@ public class DataSender {
 	private List<Exception> exceptionsList;
 	private SecurityInfo securityInfo;
 	
+	public DataSender() {}
+	
+	public DataSender(Object anObject){
+		dataObject = anObject;
+	}
+	
 	/**
 	 * @return the success
 	 */
