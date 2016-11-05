@@ -3,8 +3,7 @@ package gamerscreed.rocketstats.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import gamerscreed.profiler.structures.SecurityInfo;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController extends BaseController
@@ -12,8 +11,8 @@ public class HomeController extends BaseController
 	
 	@Override
 	@RequestMapping(value="/", method=RequestMethod.GET)
-	public String viewIndex(SecurityInfo aSecurityInfo) {
+	public ModelAndView viewIndex() {
 		// TODO Auto-generated method stub
-		return "home";
+		return new ModelAndView("HomeView");
 	}
 }
