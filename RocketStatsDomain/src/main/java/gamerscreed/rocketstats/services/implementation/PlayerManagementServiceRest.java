@@ -1,31 +1,40 @@
 package gamerscreed.rocketstats.services.implementation;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import gamerscreed.profiler.structures.DataSender;
-import gamerscreed.rocketstats.model.dao.implementation.PlayerDAO;
+import gamerscreed.rocketstats.domain.implementation.PlayerBusinessLayer;
+import gamerscreed.rocketstats.model.dto.Player;
+import gamerscreed.rocketstats.model.dto.PlayerDto;
 import gamerscreed.rocketstats.services.PlayerManagementService;
 
 @RestController
+@RequestMapping(value = "/players", consumes = "application/json", produces = "application/json")
 public class PlayerManagementServiceRest implements PlayerManagementService {
 
-	PlayerDAO playerDao = new PlayerDAO();
+	@Autowired
+	private PlayerBusinessLayer playerBussinessLayer;
 	
-    @RequestMapping("/")
-    public String index() {
-        return "Hello - RocketStats";
-    }
-
 	@Override
-	@RequestMapping("/login")
-	public DataSender loginPlayer(@RequestParam(value="username") String aUsername, @RequestParam(value="usertoken") String aToken){
-		DataSender tmpDataSender = new DataSender();
+	@RequestMapping(method = RequestMethod.POST,  value = "/login")
+    public DataSender loginPlayer(@RequestParam(value="dataObject") DataSender aData){
+		PlayerDto tmpPlayerDto = (PlayerDto) aData.getDataObject();
+		Player tmpPlayerEntity = playerBussinessLayer.getByUsernameAndToken(tmpPlayerDto.getUsername(), tmpPlayerDto.getPassword());
 		
-		tmpDataSender.setDataObject(playerDao.getByUsernameAndToken(aUsername, aToken));
+		if(tmpPlayerEntity != null){
+			tmpPlayerDto = new PlayerDto(tmpPlayerEntity);
+			aData.setSuccess(true);
+			aData.setDataObject(tmpPlayerDto);			
+		}
+		else{
+			aData.setSuccess(false);			
+		}
 		
-		return  tmpDataSender;
+		return  aData;
 	}
 
 }

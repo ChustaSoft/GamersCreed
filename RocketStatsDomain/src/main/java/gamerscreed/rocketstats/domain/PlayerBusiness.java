@@ -6,7 +6,7 @@ import gamerscreed.rocketstats.model.dto.Player;
 
 public interface PlayerBusiness {
 	
-	public Player getPlayer();
+	public Player getByUsernameAndToken(String aUsername, String aPassword);
 	
 	public Player updatePlayer();
 	

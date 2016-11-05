@@ -6,6 +6,6 @@ import gamerscreed.profiler.structures.DataSender;
 
 public interface PlayerManagementService {
 
-	public DataSender loginPlayer(@RequestParam(value="username") String aUsername, @RequestParam(value="usertoken") String aToken);
+	public DataSender loginPlayer(@RequestParam(value="dataObject") DataSender aData);
 	
 }
