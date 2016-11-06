@@ -23,7 +23,7 @@ public class PlayerManagementServiceRest implements PlayerManagementService {
 	@RequestMapping(method = RequestMethod.POST,  value = "/login")
     public DataSender loginPlayer(@RequestParam(value="dataObject") DataSender aData){
 		PlayerDto tmpPlayerDto = (PlayerDto) aData.getDataObject();
-		Player tmpPlayerEntity = playerBussinessLayer.getByUsernameAndToken(tmpPlayerDto.getUsername(), tmpPlayerDto.getPassword());
+		Player tmpPlayerEntity = playerBussinessLayer.getByUsernameAndToken(tmpPlayerDto.getUsername(), tmpPlayerDto.getToken());
 		
 		if(tmpPlayerEntity != null){
 			tmpPlayerDto = new PlayerDto(tmpPlayerEntity);

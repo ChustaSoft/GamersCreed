@@ -4,14 +4,14 @@ public class PlayerDto {
 
 	private String username;
 	
-	private String password;
+	private String usertoken;
 
 	
 	public PlayerDto() { }
 	
 	public PlayerDto(Player aPlayer) {
 		this.username = aPlayer.getUsername();
-		this.password = aPlayer.getPassword();
+		this.usertoken = aPlayer.getToken();
 	}
 	
 	/**
@@ -29,17 +29,17 @@ public class PlayerDto {
 	}
 
 	/**
-	 * @return the password
+	 * @return the token
 	 */
-	public String getPassword() {
-		return password;
+	public String getToken() {
+		return usertoken;
 	}
 
 	/**
-	 * @param password the password to set
+	 * @param token the token to set
 	 */
-	public void setPassword(String password) {
-		this.password = password;
+	public void setToken(String token) {
+		this.usertoken = token;
 	}
 	
 }

@@ -23,7 +23,7 @@ import javax.validation.constraints.Size;
 @NamedQueries({
 	@NamedQuery(name = "Player.findAll", query = "SELECT p FROM Player p"),
 	@NamedQuery(name = "Player.findByUsername", query = "SELECT p FROM Player p WHERE p.username = :username"),
-	@NamedQuery(name = "Player.findByUsernameAndToken", query = "SELECT p FROM Player p WHERE p.username = :username AND p.password = :usertoken")
+	@NamedQuery(name = "Player.findByUsernameAndToken", query = "SELECT p FROM Player p WHERE p.username = :username AND p.usertoken = :usertoken")
 })
 public class Player implements Serializable {
 	
@@ -37,11 +37,11 @@ public class Player implements Serializable {
 	private String name;
 
 	@Column(nullable=false)
-	@Size(min = 6, max = 20)
-	private String password;
-
-	@Column(nullable=false)
 	private String username;
+	
+	@Column(nullable=false)
+	@Size(min = 6, max = 20)
+	private String usertoken;
 
 	//bi-directional many-to-one association to MatchResultPlayer
 	@OneToMany(mappedBy="player")
@@ -76,12 +76,12 @@ public class Player implements Serializable {
 			this.name = name;
 	}
 
-	public String getPassword() {
-		return this.password;
+	public String getToken() {
+		return this.usertoken;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setToken(String token) {
+		this.usertoken = token;
 	}
 
 	public String getUsername() {

@@ -71,7 +71,7 @@ public class PlayerDAOTest implements CoreDaoTestInterface<Player>{
 		Player testPlayer = testPlayerHelper.getTestPlayerByUserame(PlayerTestHelper.TEST_USERNAME1);
 		String tmpUpdatedPwd = "";
 		
-		testPlayer.setPassword(tmpUpdatedPwd);
+		testPlayer.setToken(tmpUpdatedPwd);
 		
 		assertEquals("Updating wrong player", false, testPlayerHelper.updateTestEntity(testPlayer));
 	}

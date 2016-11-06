@@ -12,7 +12,7 @@ CREATE TABLE players (
   id int(3) NOT NULL,
   id_role int(2) DEFAULT NULL,
   username varchar(25) DEFAULT NULL,
-  token varchar(250) DEFAULT NULL,
+  usertoken varchar(255) DEFAULT NULL,
   name varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
