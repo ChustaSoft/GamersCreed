@@ -20,6 +20,5 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="gamerscreed.rocketstats.controller" />
-	
 		
 </beans:beans>
