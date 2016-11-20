@@ -33,7 +33,7 @@ public class DataTestViewModelGenerator {
 		
 		return tmpPlayerList;
 	}
-	
+		
 	public static TournamentViewBean getTestTournamentView(){
 		TournamentViewBean testViewBean = new TournamentViewBean();
 		
@@ -87,7 +87,8 @@ public class DataTestViewModelGenerator {
 		
 		tmpMatchViewModel = new MatchViewModel();
 		tmpMatchViewModel.setMatchId(3);
-		
+		tmpMatchPlayerStatisticViewBean.setPlayerId(2);
+		tmpMatchPlayerStatisticViewBean.setUserName("Noelia");
 		tmpMatchViewModel.getLocalPlayersStatistics().add(tmpMatchPlayerStatisticViewBean);
 		tmpMatchPlayerStatisticViewBean.setPlayerId(1);
 		tmpMatchPlayerStatisticViewBean.setUserName("Xelit3");
