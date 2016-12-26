@@ -63,45 +63,52 @@ public class DataTestViewModelGenerator {
 		
 		MatchViewModel tmpMatchViewModel = new MatchViewModel();
 		MatchPlayerStatisticViewBean tmpMatchPlayerStatisticViewBean = new MatchPlayerStatisticViewBean();
+		tmpMatchViewModel.setMatchId(1);
 		tmpMatchPlayerStatisticViewBean.setPlayerId(1);
 		tmpMatchPlayerStatisticViewBean.setUserName("Xelit3");
-		tmpMatchViewModel.setMatchId(1);
-		tmpMatchViewModel.getLocalPlayersStatistics().add(tmpMatchPlayerStatisticViewBean);
+		tmpMatchViewModel.getLocalPlayersStatistics().put(1, tmpMatchPlayerStatisticViewBean);
+		tmpMatchPlayerStatisticViewBean = new MatchPlayerStatisticViewBean();
 		tmpMatchPlayerStatisticViewBean.setPlayerId(2);
 		tmpMatchPlayerStatisticViewBean.setUserName("Noelia");
-		tmpMatchViewModel.getVisitantPlayersStatistics().add(tmpMatchPlayerStatisticViewBean);
+		tmpMatchViewModel.getVisitantPlayersStatistics().put(2, tmpMatchPlayerStatisticViewBean);
 		
-		testViewBean.getUndoneMatchViewModelList().add(tmpMatchViewModel);
+		testViewBean.getUndoneMatchViewModelList().put(1, tmpMatchViewModel);
 		
 		tmpMatchViewModel = new MatchViewModel();
 		tmpMatchViewModel.setMatchId(2);
+		tmpMatchPlayerStatisticViewBean = new MatchPlayerStatisticViewBean();
 		tmpMatchPlayerStatisticViewBean.setPlayerId(1);
 		tmpMatchPlayerStatisticViewBean.setUserName("Xelit3");
-		tmpMatchViewModel.getLocalPlayersStatistics().add(tmpMatchPlayerStatisticViewBean);
+		tmpMatchViewModel.getLocalPlayersStatistics().put(1, tmpMatchPlayerStatisticViewBean);
+		tmpMatchPlayerStatisticViewBean = new MatchPlayerStatisticViewBean();
 		tmpMatchPlayerStatisticViewBean.setPlayerId(2);
 		tmpMatchPlayerStatisticViewBean.setUserName("Noelia");
-		tmpMatchViewModel.getVisitantPlayersStatistics().add(tmpMatchPlayerStatisticViewBean);
+		tmpMatchViewModel.getVisitantPlayersStatistics().put(2, tmpMatchPlayerStatisticViewBean);
 		tmpMatchViewModel.setGoalsLocal(5);
 		tmpMatchViewModel.setGoalsVisitor(2);
-		testViewBean.getDoneMatchViewModelList().add(tmpMatchViewModel);
+		testViewBean.getDoneMatchViewModelList().put(2, tmpMatchViewModel);
 		
 		tmpMatchViewModel = new MatchViewModel();
 		tmpMatchViewModel.setMatchId(3);
+		tmpMatchPlayerStatisticViewBean = new MatchPlayerStatisticViewBean();
 		tmpMatchPlayerStatisticViewBean.setPlayerId(2);
 		tmpMatchPlayerStatisticViewBean.setUserName("Noelia");
-		tmpMatchViewModel.getLocalPlayersStatistics().add(tmpMatchPlayerStatisticViewBean);
+		tmpMatchViewModel.getLocalPlayersStatistics().put(2, tmpMatchPlayerStatisticViewBean);
+		tmpMatchPlayerStatisticViewBean = new MatchPlayerStatisticViewBean();
 		tmpMatchPlayerStatisticViewBean.setPlayerId(1);
 		tmpMatchPlayerStatisticViewBean.setUserName("Xelit3");
-		tmpMatchViewModel.getLocalPlayersStatistics().add(tmpMatchPlayerStatisticViewBean);
+		tmpMatchViewModel.getLocalPlayersStatistics().put(1, tmpMatchPlayerStatisticViewBean);
+		tmpMatchPlayerStatisticViewBean = new MatchPlayerStatisticViewBean();
 		tmpMatchPlayerStatisticViewBean.setPlayerId(3);
 		tmpMatchPlayerStatisticViewBean.setUserName("Raul");
-		tmpMatchViewModel.getVisitantPlayersStatistics().add(tmpMatchPlayerStatisticViewBean);
+		tmpMatchViewModel.getVisitantPlayersStatistics().put(3, tmpMatchPlayerStatisticViewBean);
+		tmpMatchPlayerStatisticViewBean = new MatchPlayerStatisticViewBean();
 		tmpMatchPlayerStatisticViewBean.setPlayerId(1);
 		tmpMatchPlayerStatisticViewBean.setUserName("Angel");
-		tmpMatchViewModel.getVisitantPlayersStatistics().add(tmpMatchPlayerStatisticViewBean);
+		tmpMatchViewModel.getVisitantPlayersStatistics().put(1, tmpMatchPlayerStatisticViewBean);
 		tmpMatchViewModel.setGoalsLocal(0);
 		tmpMatchViewModel.setGoalsVisitor(7);
-		testViewBean.getDoneMatchViewModelList().add(tmpMatchViewModel);
+		testViewBean.getDoneMatchViewModelList().put(3, tmpMatchViewModel);
 		
 		return testViewBean;
 	}	
