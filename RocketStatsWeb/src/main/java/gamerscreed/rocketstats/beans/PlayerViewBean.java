@@ -2,34 +2,42 @@ package gamerscreed.rocketstats.beans;
 
 public class PlayerViewBean {
 
-	private String username;
-	private String password;
+	private int userId;
+	private String roleName;
+	private String userName;
+	private String fullName;
 	
-	/**
-	 * @return the username
-	 */
-	public String getUsername() {
-		return username;
+	
+	public int getUserId() {
+		return userId;
 	}
 	
-	/**
-	 * @param username the username to set
-	 */
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	
-	/**
-	 * @return the password
-	 */
-	public String getPassword() {
-		return password;
+	public String getRoleName() {
+		return roleName;
 	}
 	
-	/**
-	 * @param password the password to set
-	 */
-	public void setPassword(String password) {
-		this.password = password;
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
 	}
+	
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+	public String getFullName() {
+		return fullName;
+	}
+	
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+	
 }

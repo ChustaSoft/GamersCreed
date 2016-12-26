@@ -2,13 +2,12 @@
 
 <body>
 
-	<form:form id="loginForm" method="post" action="login" modelAttribute="playerBean">
-
-		<form:label path="username">Enter your user-name</form:label>
-		<form:input id="username" name="username" path="username" />
+	<form:form id="loginForm" method="post" action="login" modelAttribute="loginViewBean">
+		<form:label path="userName">Enter your user-name</form:label>
+		<form:input id="userName" name="userName" path="userName" />
 		<br />
-		<form:label path="username">Please enter your password</form:label>
-		<form:password id="password" name="password" path="password" />
+		<form:label path="userPassword">Please enter your password</form:label>
+		<form:password id="userPassword" name="userPassword" path="userPassword" />
 		<br />
 		<input type="submit" value="Submit" />
 	</form:form>
