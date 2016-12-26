@@ -1,6 +1,4 @@
-<div class="container-fluid">
-	<footer>GamersCreed - RocketStats Web - Xelit3 Design</footer>
-</div>
+<footer class="container-fluid">GamersCreed - RocketStats Web - Xelit3 Design</footer>
 <!-- jQuery script links -->	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Bootstrap script links -->	
