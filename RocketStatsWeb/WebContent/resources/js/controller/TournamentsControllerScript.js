@@ -1,4 +1,7 @@
 $(document).ready(function (){
+	$('.nav li').eq(0).removeClass("active");
+	$('.nav li').eq(1).removeClass("active");
+	$('.nav li').eq(2).addClass("active");	
 		
 	$('#rsModalUpdateMatch').on('show.bs.modal', function (event) {
 		  var tMatchModel = getMatchModelFromStringData($(event.relatedTarget).data('element')); 
@@ -8,6 +11,8 @@ $(document).ready(function (){
 	
 	$("#rsSubmitUpdateMatch").click(function(){
 		var tMatchToSend = getMatchFromUpdateContainer();
+		
+		updateMatch(tMatchToSend);
 	});
 	
 });
@@ -32,9 +37,9 @@ function setDynamicModalViewFromModel(aMatchModel){
 	$("#rsUpdateMatchFormLocalTable").empty();
 	$("#rsUpdateMatchFormLocalTable").append(generateHeaderForUpdateMatchModal("Local"));
 	$.each(aMatchModel.getLocalPlayers(), function(index, iPlayer){
-		
 		$("#rsUpdateMatchFormLocalTable").append(generateRowForPlayerToUpdateMatch(iPlayer));		
 	});
+
 	$("#rsUpdateMatchFormVisitorsTable").empty();
 	$("#rsUpdateMatchFormVisitorsTable").append(generateHeaderForUpdateMatchModal("Visitor"));
 	$.each(aMatchModel.getVisitantPlayers(), function(index, iPlayer){
@@ -58,9 +63,9 @@ function generateRowForPlayerToUpdateMatch(aPlayer){
 	var tRow = $("<tr></tr>");
 	tRow.attr("player-id", aPlayer.getPlayerId());
 	tRow.append($("<td></td>").html(aPlayer.getUserName()));
-	tRow.append($("<td></td>").html("<input type='checkbox' id='winner' />"));
-	tRow.append($("<td></td>").html("<input type='checkbox' id='mvp' />"));
-	tRow.append($("<td></td>").html("<input type='number' min='0' value='0' step='10' id='matchPoints' />"));
+	tRow.append($("<td></td>").html("<input type='checkbox' />"));
+	tRow.append($("<td></td>").html("<input type='checkbox' />"));
+	tRow.append($("<td></td>").html("<input type='number' min='0' value='0' step='10' />"));
 	tRow.append($("<td></td>").html("<input type='number' min='0' value='0' step='1' id='goals' />"));
 	tRow.append($("<td></td>").html("<input type='number' min='0' value='0' step='1' id='safes' />"));
 	tRow.append($("<td></td>").html("<input type='number' min='0' value='0' step='1' id='shots' />"));
@@ -75,14 +80,51 @@ function generateHeaderForUpdateMatchModal(aPlayerPositionLabel){
 };
 
 function getMatchFromUpdateContainer(){
-	//TODO Obtener un Match, necesitamos el ID del partido, y recorrer filas (establecerles una clase para buscarlas seria muy útil
-	
 	var tMatch = new Match();
 	tMatch.setId($("#rsModalUpdateMatch").attr("match-id"));
-//	var count = $('#rsUpdateMatchFormLocalTable').get(0).rows;
-	$.each($("#rsUpdateMatchFormLocalTable").find('> tbody > tr'), function(index, iPlayerRow){
-		var tTest = iPlayerRow.cells;
-		var tTest1 = iPlayerRow.cells[1].innerHTML;
-		debugger;
-	});	
+	
+	$.each($("#rsUpdateMatchFormLocalTable").find("tbody>tr"), function(index, iPlayerRow){
+		tMatch.getLocalPlayers().push(getPlayerStatisticUpdateFromRow(iPlayerRow));
+	});
+	$.each($("#rsUpdateMatchFormVisitorsTable").find("tbody>tr"), function(index, iPlayerRow){
+		tMatch.getVisitantPlayers().push(getPlayerStatisticUpdateFromRow(iPlayerRow));
+	});
+	
+	return tMatch;
+};
+
+function getPlayerStatisticUpdateFromRow(aPlayerStatisticRow){
+	var tPlayerStatistic = new MatchPlayerStatistic();
+	
+	tPlayerStatistic.setPlayerId($(aPlayerStatisticRow).attr('player-id'));
+	tPlayerStatistic.setUserName($(aPlayerStatisticRow).find("td").eq(0).html());
+	tPlayerStatistic.setMatchPoints($(aPlayerStatisticRow).find("td").eq(3).find("input").val());
+	tPlayerStatistic.setGoals($(aPlayerStatisticRow).find("td").eq(4).find("input").val());
+	tPlayerStatistic.setSafes($(aPlayerStatisticRow).find("td").eq(5).find("input").val());
+	tPlayerStatistic.setShots($(aPlayerStatisticRow).find("td").eq(6).find("input").val());
+	tPlayerStatistic.setMvp($(aPlayerStatisticRow).find("td").eq(2).find("input").is(':checked'));
+	tPlayerStatistic.setWinner($(aPlayerStatisticRow).find("td").eq(1).find("input").is(':checked'));
+	
+	return tPlayerStatistic;
+};
+
+function updateMatch(aMatch){
+	var x = JSON.stringify(aMatch);
+	$.ajax({ 
+	    url: "tournaments",    
+	    type:"POST", 
+	    contentType: "application/json;",
+	    data : JSON.stringify(aMatch),
+		dataType : 'json',
+		timeout : 100000,
+		success : function(data) {
+			alert("ok");
+		},
+		error : function(e) {
+			alert("bad");
+		},
+		done : function(e) {
+			alert("done");
+		}
+	});
 };
