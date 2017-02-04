@@ -1,7 +1,11 @@
 package gamerscreed.rocketstats.beans;
 
-public class MatchPlayerStatisticViewBean {
+import java.io.Serializable;
 
+public class MatchPlayerStatisticViewBean implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
 	private int playerId;
 	private String userName;
 	private int goals;

@@ -51,11 +51,11 @@
 				</thead>
 				<sTag:if test="${not empty tournamentViewBean.getUndoneMatchViewModelList()}">
 					<sTag:forEach var="iPendingMatch" items="${tournamentViewBean.getUndoneMatchViewModelList()}">
-						<tr class="rsTrPendingGame" data-toggle="modal" data-target="#rsModalUpdateMatch" data-element="${iPendingMatch.value}">
+						<tr class="rsTrPendingGame" data-toggle="modal" data-target="#rsModalUpdateMatch" data-element="${iPendingMatch.value.getMatchId()}">
 							<td>
 								<ul class="list-group">
 									<sTag:forEach var="iPlayerLocal" items="${iPendingMatch.value.getLocalPlayersStatistics()}">
-										<li class="list-group-item">${iPlayerLocal.value.getUserName()}</li>									
+										<li class="list-group-item">${iPlayerLocal.getUserName()}</li>									
 									</sTag:forEach>
 								</ul>
 								<div class="text-center lead">-</div>
@@ -63,7 +63,7 @@
 							<td>
 								<ul class="list-group">
 									<sTag:forEach var="iPlayerVisitant" items="${iPendingMatch.value.getVisitantPlayersStatistics()}">
-										<li class="list-group-item text-right">${iPlayerVisitant.value.getUserName()}</li>
+										<li class="list-group-item text-right">${iPlayerVisitant.getUserName()}</li>
 									</sTag:forEach>
 								</ul>								
 								<div class="text-center lead">-</div>
@@ -89,7 +89,7 @@
 							<td>
 								<ul class="list-group">
 									<sTag:forEach var="iPlayerLocal" items="${iDoneMatch.value.getLocalPlayersStatistics()}">
-										<li class="list-group-item">${iPlayerLocal.value.getUserName()}</li>
+										<li class="list-group-item">${iPlayerLocal.getUserName()}</li>
 									</sTag:forEach>
 								</ul>										
 								<div class="text-center lead">${iDoneMatch.value.getGoalsLocal()}</div>									
@@ -97,7 +97,7 @@
 							<td>
 								<ul class="list-group">
 									<sTag:forEach var="iPlayerVisitant" items="${iDoneMatch.value.getVisitantPlayersStatistics()}">
-										<li class="list-group-item text-right">${iPlayerVisitant.value.getUserName()}</li>																			
+										<li class="list-group-item text-right">${iPlayerVisitant.getUserName()}</li>																			
 									</sTag:forEach>
 								</ul>
 								<div class="text-center lead">${iDoneMatch.value.getGoalsVisitor()}</div>									
