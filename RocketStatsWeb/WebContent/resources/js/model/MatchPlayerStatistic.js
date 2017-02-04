@@ -13,7 +13,7 @@ function MatchPlayerStatistic(){
 	this.construct = function(objectStringData){
 		var tmpSplittedData = objectStringData.split("-");
 		
-		this.playerId = tmpSplittedData[0];
+		this.playerId = tmpSplittedData[0].split("=")[1];
 		this.userName = tmpSplittedData[1];
 		this.goals = tmpSplittedData[2];
 		this.safes = tmpSplittedData[3];
