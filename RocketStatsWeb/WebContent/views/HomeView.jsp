@@ -14,8 +14,8 @@
 		${userSession.getUserName()}
 	</p>	
 
-<%@include file="base/BaseFooterView.jsp"%>
-<script type="text/javascript" src="resources/js/controller/HomeControllerScript.js"></script>
+	<%@include file="base/BaseFooterView.jsp"%>
+	<script type="text/javascript" src="resources/js/controller/HomeControllerScript.js"></script>
 </body>
 
 </html>
