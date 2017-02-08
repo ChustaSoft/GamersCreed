@@ -9,31 +9,34 @@
 	<%@include file="base/MenuHeader.jsp"%>
 	</header>
 	
-	<div class="container" id="rsPlayerControls">	
-		<button type="button" id="rsBtnAddPlayer" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#rsModalAddPlayer">Add player</button>
+	<div class="container rsPlayerControls">
+		<button type="button" id="rsSelectPlayersShow" class="btn btn-primary btn-md pull-right" >Generate tournament</button>	
+		<button type="button" id="rsAddPlayer" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#rsModalAddPlayer">Add player</button>
 	</div>
 	
 	<div class="container" id="rsPlayerTable">
-		<table class="table table-bordered">
+		<table class="table table-hover">
 			<thead>
-				<tr>
-					<th>ID</th>
+				<tr>					
 					<th>User</th>
 					<th>Full name</th>
 					<th>Role</th>
+					<th class="rsHiddenSelection">Select</th>
 				</tr>
 			</thead>
 			<sTag:if test="${not empty playerList}">
 				<sTag:forEach var="iPlayer" items="${playerList}">
-					<tr>
-						<td>${iPlayer.getUserId()}</td>
+					<tr class="rsPlayerRow" id ="rowPlayer_${iPlayer.getUserId()}">						
 						<td>${iPlayer.getUserName()}</td>
 						<td>${iPlayer.getFullName()}</td>
 						<td>${iPlayer.getRoleName()}</td>
+						<td class="rsHiddenSelection"><input type="checkbox" /></td>
 					</tr>
 				</sTag:forEach>
 			</sTag:if>
-		</table>	
+		</table>
+		
+		<button class="btn btn-warning rsHiddenSelection pull-right" id="rsGenerateTournament">Generate</button>	
 	</div>
 
 	<div class="modal fade" id="rsModalAddPlayer" tabindex="-1"

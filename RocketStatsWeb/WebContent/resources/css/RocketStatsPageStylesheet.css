@@ -31,6 +31,20 @@ span{
 	border: 2px double #4C9900;
 }
 
+.rsHiddenSelection{
+	visibility: hidden;
+}
+
+.rsPlayerControls
+{
+	margin: 2em 0em 0em 2em;
+}
+
+.rsPlayerControls > button
+{
+	margin-right: 1em;
+}
+
 input[type="number"]{
 	width: 5em;
 }

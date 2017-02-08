@@ -31,6 +31,20 @@ public class DataTestViewModelGenerator {
 		tmpTestBean.setUserName("XELIT3");
 		tmpPlayerList.add(tmpTestBean);
 		
+		tmpTestBean = new PlayerViewBean();
+		tmpTestBean.setFullName("NOELIA MOLINA");
+		tmpTestBean.setUserId(2);
+		tmpTestBean.setRoleName("PRIMERA DAMA");
+		tmpTestBean.setUserName("LUNARIS");
+		tmpPlayerList.add(tmpTestBean);
+		
+		tmpTestBean = new PlayerViewBean();
+		tmpTestBean.setFullName("ORLANDO MANJARREZ");
+		tmpTestBean.setUserId(3);
+		tmpTestBean.setRoleName("PRINGAO");
+		tmpTestBean.setUserName("ORLA");
+		tmpPlayerList.add(tmpTestBean);
+		
 		return tmpPlayerList;
 	}
 		

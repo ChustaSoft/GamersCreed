@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import gamerscreed.rocketstats.beans.MatchViewModel;
 import gamerscreed.rocketstats.controller.base.BaseController;
 
+
 @Controller
 @SessionAttributes("userSession")
 @RequestMapping(value="/tournaments")
@@ -20,21 +21,25 @@ public class TournamentsController extends BaseController {
 	
 	@Override
 	@RequestMapping(method=RequestMethod.GET)
-	public ModelAndView viewIndex() {
+	public ModelAndView viewIndex() 
+	{
 		ModelAndView tViewModel = new ModelAndView("TournamentsView");
+	
 		tViewModel.addObject("tournamentViewBean", DataTestViewModelGenerator.getTestTournamentView());		
 		return tViewModel;
 	}
 	
-	@RequestMapping(method=RequestMethod.POST)
-	public @ResponseBody MatchViewModel getMatchModelFromGivenId(@RequestParam("matchId") int aMatchId){
+	@ResponseBody
+	@RequestMapping(method=RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public MatchViewModel getMatchModelFromGivenId(@RequestParam("matchId") int aMatchId)
+	{
 		return DataTestViewModelGenerator.getTestTournamentView().getUndoneMatchViewModelList().get(aMatchId);		
 	}
 	
 	@ResponseBody
 	@RequestMapping(method=RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ModelAndView updateMatch(@RequestBody MatchViewModel aMatchViewModel){
-				
+	public ModelAndView updateMatch(@RequestBody MatchViewModel aMatchViewModel)
+	{				
 		//TODO: Update match
 		
 		return viewIndex();
