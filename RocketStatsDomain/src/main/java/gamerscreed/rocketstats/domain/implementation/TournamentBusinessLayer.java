@@ -17,6 +17,7 @@ import gamerscreed.rocketstats.model.helpers.BasicMatchInfo;
 @Service
 public class TournamentBusinessLayer implements TournamentBusiness{
 	
+	
 	@Override
 	public Tournament generateTournament(List<Player> aPlayerList, Date aBeginDate) 
 	{
@@ -25,31 +26,32 @@ public class TournamentBusinessLayer implements TournamentBusiness{
 
 		if(tMatchInfo.getTopPlayerForTeam() > 0){
 			Map<Integer, Team> tPossibleTeamsForCombination = getInitializedHashMapForTeams(tMatchInfo.getPossibleCombinations());				
+			int tIndex = 0;
 			
 			for(int iCounterTeam = 0; iCounterTeam < tMatchInfo.getPlayersInMatch(); iCounterTeam++)
 			{
 				for(int iCounterPlayer = 0; iCounterPlayer < tMatchInfo.getIterationsForPlayer(); iCounterPlayer++)
 				{
-					int iIndex = getIndex(iCounterTeam, iCounterPlayer, tMatchInfo.getTopPlayerForTeam(), tMatchInfo.getPossibleCombinations());
-					tPossibleTeamsForCombination.get(iIndex).addPlayer(aPlayerList.get(iCounterTeam));						
+					tIndex = getIndex(iCounterTeam, iCounterPlayer, tMatchInfo.getTopPlayerForTeam(), tMatchInfo.getPossibleCombinations());
+					tPossibleTeamsForCombination.get(tIndex).addPlayer(aPlayerList.get(iCounterTeam));						
 				}						
 			}					
-						
-				for(Team iTeamLocal : tPossibleTeamsForCombination.values())
+			
+			Match tNewMatch = new Match();
+			for(Team iTeamLocal : tPossibleTeamsForCombination.values())
+			{
+				for(Team iTeamVisitant : tPossibleTeamsForCombination.values())
 				{
-					for(Team iTeamVisitant : tPossibleTeamsForCombination.values())
+					if(!iTeamVisitant.equals(iTeamLocal))
 					{
-						if(!iTeamVisitant.equals(iTeamLocal))
-						{
-							Match iNewMatch = new Match();
-							iNewMatch.setTeamLocal(iTeamLocal);
-							iNewMatch.setTeamVisitant(iTeamVisitant);
-							if(!tGeneratedTournament.getMatches().contains(iNewMatch))
-								tGeneratedTournament.getMatches().add(iNewMatch);
-						}						
-					}
-				}	
-				System.out.println("Hola");
+						tNewMatch = new Match();
+						tNewMatch.setTeamLocal(iTeamLocal);
+						tNewMatch.setTeamVisitant(iTeamVisitant);
+						if(!tGeneratedTournament.getMatches().contains(tNewMatch))
+							tGeneratedTournament.getMatches().add(tNewMatch);
+					}						
+				}
+			}			
 		}
 		
 		return tGeneratedTournament;
