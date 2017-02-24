@@ -3,15 +3,15 @@
 	<persistence-unit name="RocketStats" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		
-		<class>gamerscreed.rocketstats.model.dto.Match</class>
-		<class>gamerscreed.rocketstats.model.dto.MatchResultPlayer</class>
-		<class>gamerscreed.rocketstats.model.dto.MatchResultPlayerPK</class>
-		<class>gamerscreed.rocketstats.model.dto.MatchType</class>
-		<class>gamerscreed.rocketstats.model.dto.Player</class>
-		<class>gamerscreed.rocketstats.model.dto.Result</class>
-		<class>gamerscreed.rocketstats.model.dto.Role</class>
-		<class>gamerscreed.rocketstats.model.dto.Team</class>
-		<class>gamerscreed.rocketstats.model.dto.Tournament</class>
+		<class>gamerscreed.rocketstats.model.entities.Match</class>
+		<class>gamerscreed.rocketstats.model.entities.MatchResultPlayer</class>
+		<class>gamerscreed.rocketstats.model.entities.MatchResultPlayerPK</class>
+		<class>gamerscreed.rocketstats.model.entities.MatchType</class>
+		<class>gamerscreed.rocketstats.model.entities.Player</class>
+		<class>gamerscreed.rocketstats.model.entities.Result</class>
+		<class>gamerscreed.rocketstats.model.entities.Role</class>
+		<class>gamerscreed.rocketstats.model.entities.Team</class>
+		<class>gamerscreed.rocketstats.model.entities.Tournament</class>
 		
 		<validation-mode>AUTO</validation-mode>
 

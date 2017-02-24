@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import gamerscreed.rocketstats.model.dto.MatchResultPlayer;
+import gamerscreed.rocketstats.model.entities.MatchResultPlayer;
 import gamerscreed.rocketstats.model.test.interfaces.CoreDaoTestInterface;
 import gamerscreed.rocketstats.model.test.utilities.MatchTestHelper;
 

@@ -1,5 +1,7 @@
 package gamerscreed.rocketstats.model.dto;
 
+import gamerscreed.rocketstats.model.entities.Player;
+
 public class PlayerDto {
 
 	private String username;

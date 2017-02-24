@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import gamerscreed.rocketstats.model.dto.Player;
+import gamerscreed.rocketstats.model.entities.Player;
 import gamerscreed.rocketstats.model.test.interfaces.CoreDaoTestInterface;
 import gamerscreed.rocketstats.model.test.utilities.PlayerTestHelper;
 

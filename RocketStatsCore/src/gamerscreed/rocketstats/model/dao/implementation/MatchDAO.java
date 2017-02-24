@@ -1,7 +1,7 @@
 package gamerscreed.rocketstats.model.dao.implementation;
 
 import gamerscreed.rocketstats.model.dao.AbstractDAOLayer;
-import gamerscreed.rocketstats.model.dto.Match;
+import gamerscreed.rocketstats.model.entities.Match;
 
 public class MatchDAO extends AbstractDAOLayer<Match> {
 

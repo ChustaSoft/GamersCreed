@@ -6,8 +6,8 @@ import java.util.List;
 
 import gamerscreed.rocketstats.model.dao.implementation.MatchDAO;
 import gamerscreed.rocketstats.model.dao.implementation.TournamentDAO;
-import gamerscreed.rocketstats.model.dto.Match;
-import gamerscreed.rocketstats.model.dto.Tournament;
+import gamerscreed.rocketstats.model.entities.Match;
+import gamerscreed.rocketstats.model.entities.Tournament;
 
 public class TournamentTestHelper {
 	

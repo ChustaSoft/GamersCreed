@@ -1,7 +1,8 @@
-package gamerscreed.rocketstats.model.dto;
+package gamerscreed.rocketstats.model.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -87,8 +88,7 @@ public class Team implements Serializable {
 			this.players.add(aPlayer);
 			return true;
 		}
-		else return false;
-			
+		else return false;			
 	}
 	
 	public boolean removePlayer(Player aPlayer){
@@ -97,6 +97,34 @@ public class Team implements Serializable {
 			return true;
 		}
 		else return false;			
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((players == null) ? 0 : players.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null)
+			return false;
+		else{
+			Team castObj = (Team) obj;
+			
+			List<Player> tThisPlayers = this.getPlayers(), tOtherPlayers = castObj.getPlayers();
+			tThisPlayers.removeAll(Collections.singleton(null));
+			tOtherPlayers.removeAll(Collections.singleton(null));
+			
+			
+			if(tThisPlayers.containsAll(tOtherPlayers))
+				return true;
+			else
+				return false;
+		}		
 	}
 
 }

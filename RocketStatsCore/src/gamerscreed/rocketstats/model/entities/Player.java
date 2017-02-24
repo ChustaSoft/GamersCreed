@@ -1,4 +1,4 @@
-package gamerscreed.rocketstats.model.dto;
+package gamerscreed.rocketstats.model.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,8 +22,9 @@ import javax.validation.constraints.Size;
 @Table(name="players")
 @NamedQueries({
 	@NamedQuery(name = "Player.findAll", query = "SELECT p FROM Player p"),
+	@NamedQuery(name = "Player.findByUserIds", query = "SELECT p FROM Player p WHERE p.id IN :idsList"),
 	@NamedQuery(name = "Player.findByUsername", query = "SELECT p FROM Player p WHERE p.username = :username"),
-	@NamedQuery(name = "Player.findByUsernameAndToken", query = "SELECT p FROM Player p WHERE p.username = :username AND p.usertoken = :usertoken")
+	@NamedQuery(name = "Player.findByUsernameAndToken", query = "SELECT p FROM Player p WHERE p.username = :username AND p.usertoken = :usertoken")	
 })
 public class Player implements Serializable {
 	
@@ -56,9 +57,15 @@ public class Player implements Serializable {
 	@ManyToMany(mappedBy="players")
 	private List<Team> teams;
 
-	public Player() {
-	}
+	public Player() { }
 
+	public Player(int id, String username, String name)
+	{
+		this.id = id;
+		this.username = username;
+		this.name = name;
+	}
+	
 	public int getId() {
 		return this.id;
 	}
@@ -131,6 +138,34 @@ public class Player implements Serializable {
 
 	public void setTeams(List<Team> teams) {
 		this.teams = teams;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null)
+			return false;
+		else{
+			Player castObj = (Player) obj;
+			
+			if(this.getUsername().equals(castObj.getUsername()))
+				return true;
+			else 
+				return false;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Player [id=" + id + ", username=" + username + "]";
 	}
 
 }

@@ -1,7 +1,7 @@
 package gamerscreed.rocketstats.model.dao.implementation;
 
 import gamerscreed.rocketstats.model.dao.AbstractDAOLayer;
-import gamerscreed.rocketstats.model.dto.Tournament;
+import gamerscreed.rocketstats.model.entities.Tournament;
 
 public class TournamentDAO extends AbstractDAOLayer<Tournament> {
 

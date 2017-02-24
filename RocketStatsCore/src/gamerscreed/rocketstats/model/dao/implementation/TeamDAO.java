@@ -1,7 +1,7 @@
 package gamerscreed.rocketstats.model.dao.implementation;
 
 import gamerscreed.rocketstats.model.dao.AbstractDAOLayer;
-import gamerscreed.rocketstats.model.dto.Team;
+import gamerscreed.rocketstats.model.entities.Team;
 
 public class TeamDAO extends AbstractDAOLayer<Team> {
 

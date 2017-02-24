@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import gamerscreed.rocketstats.domain.PlayerBusiness;
 import gamerscreed.rocketstats.model.dao.implementation.PlayerDAO;
-import gamerscreed.rocketstats.model.dto.Player;
+import gamerscreed.rocketstats.model.entities.Player;
 
 @Service
 public class PlayerBusinessLayer implements PlayerBusiness {
@@ -42,6 +42,12 @@ public class PlayerBusinessLayer implements PlayerBusiness {
 	public List<Player> getAllPlayers() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Player> getPlayersByIds(List<Integer> aPlayerIds) {
+
+		return playerDao.getPlayersByIds(aPlayerIds);
 	}
 
 }

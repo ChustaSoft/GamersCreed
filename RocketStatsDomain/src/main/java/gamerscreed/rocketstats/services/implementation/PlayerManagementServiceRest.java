@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import gamerscreed.profiler.structures.DataSender;
 import gamerscreed.rocketstats.domain.implementation.PlayerBusinessLayer;
-import gamerscreed.rocketstats.model.dto.Player;
 import gamerscreed.rocketstats.model.dto.PlayerDto;
+import gamerscreed.rocketstats.model.entities.Player;
 import gamerscreed.rocketstats.services.PlayerManagementService;
 
 @RestController

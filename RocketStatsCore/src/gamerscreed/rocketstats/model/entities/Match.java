@@ -1,4 +1,4 @@
-package gamerscreed.rocketstats.model.dto;
+package gamerscreed.rocketstats.model.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -122,6 +122,30 @@ public class Match implements Serializable {
 
 	public void setTournament(Tournament tournament) {
 		this.tournament = tournament;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((teamLocal == null) ? 0 : teamLocal.hashCode());
+		result = prime * result + ((teamVisitant == null) ? 0 : teamVisitant.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null || getClass() != obj.getClass())
+			return false;
+		
+		Match other = (Match) obj;
+		if (teamLocal == null || teamVisitant == null) {
+			return false;			
+		}
+		else if(teamLocal.equals(other.getTeamLocal()) && teamVisitant.equals(other.getTeamVisitant()))
+			return true;
+		
+		return false;
 	}
 
 }

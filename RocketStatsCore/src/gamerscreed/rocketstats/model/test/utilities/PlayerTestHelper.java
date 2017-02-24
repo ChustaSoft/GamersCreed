@@ -2,8 +2,8 @@ package gamerscreed.rocketstats.model.test.utilities;
 
 import gamerscreed.rocketstats.model.dao.implementation.PlayerDAO;
 import gamerscreed.rocketstats.model.dao.implementation.RoleDAO;
-import gamerscreed.rocketstats.model.dto.Player;
-import gamerscreed.rocketstats.model.dto.Role;
+import gamerscreed.rocketstats.model.entities.Player;
+import gamerscreed.rocketstats.model.entities.Role;
 import gamerscreed.rocketstats.utilities.enums.RoleDefinition;
 
 public class PlayerTestHelper {

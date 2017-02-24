@@ -8,7 +8,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import gamerscreed.rocketstats.model.dto.Match;
+import gamerscreed.rocketstats.model.entities.Match;
 import gamerscreed.rocketstats.model.test.interfaces.CoreDaoTestInterface;
 import gamerscreed.rocketstats.model.test.utilities.MatchTestHelper;
 

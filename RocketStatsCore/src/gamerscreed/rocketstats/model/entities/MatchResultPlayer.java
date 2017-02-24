@@ -1,4 +1,4 @@
-package gamerscreed.rocketstats.model.dto;
+package gamerscreed.rocketstats.model.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;

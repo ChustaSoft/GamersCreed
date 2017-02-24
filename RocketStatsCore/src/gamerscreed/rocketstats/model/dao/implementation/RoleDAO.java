@@ -3,7 +3,7 @@ package gamerscreed.rocketstats.model.dao.implementation;
 import javax.persistence.TypedQuery;
 
 import gamerscreed.rocketstats.model.dao.AbstractDAOLayer;
-import gamerscreed.rocketstats.model.dto.Role;
+import gamerscreed.rocketstats.model.entities.Role;
 import gamerscreed.rocketstats.utilities.enums.RoleDefinition;
 
 public class RoleDAO extends AbstractDAOLayer<Role> {

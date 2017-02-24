@@ -6,10 +6,10 @@ import gamerscreed.rocketstats.model.dao.implementation.MatchTypeDAO;
 import gamerscreed.rocketstats.model.dao.implementation.PlayerDAO;
 import gamerscreed.rocketstats.model.dao.implementation.TeamDAO;
 import gamerscreed.rocketstats.model.dao.implementation.TournamentDAO;
-import gamerscreed.rocketstats.model.dto.Match;
-import gamerscreed.rocketstats.model.dto.MatchResultPlayer;
-import gamerscreed.rocketstats.model.dto.Player;
-import gamerscreed.rocketstats.model.dto.Result;
+import gamerscreed.rocketstats.model.entities.Match;
+import gamerscreed.rocketstats.model.entities.MatchResultPlayer;
+import gamerscreed.rocketstats.model.entities.Player;
+import gamerscreed.rocketstats.model.entities.Result;
 
 public class MatchTestHelper {
 	

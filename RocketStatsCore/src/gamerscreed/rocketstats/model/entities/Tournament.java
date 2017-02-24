@@ -1,4 +1,4 @@
-package gamerscreed.rocketstats.model.dto;
+package gamerscreed.rocketstats.model.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -42,7 +42,10 @@ public class Tournament implements Serializable {
 	@JoinColumn(name="id_winner")
 	private Player winner;
 
-	public Tournament() {
+	public Tournament() { }
+	
+	public Tournament(Date aStartDate){
+		startDate = aStartDate;
 	}
 
 	public int getId() {

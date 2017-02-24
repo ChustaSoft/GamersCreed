@@ -1,8 +1,8 @@
 package gamerscreed.rocketstats.model.test.utilities;
 
 import gamerscreed.rocketstats.model.dao.implementation.PlayerDAO;
-import gamerscreed.rocketstats.model.dto.Player;
-import gamerscreed.rocketstats.model.dto.Team;
+import gamerscreed.rocketstats.model.entities.Player;
+import gamerscreed.rocketstats.model.entities.Team;
 
 public class TeamTestHelper {
 	

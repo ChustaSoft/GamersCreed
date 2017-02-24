@@ -1,5 +1,7 @@
 package gamerscreed.rocketstats.services;
 
+import org.springframework.web.bind.annotation.RequestBody;
+
 import gamerscreed.profiler.structures.DataSender;
 
 public interface TournamentManagementService {
@@ -8,6 +10,6 @@ public interface TournamentManagementService {
 	
 	public DataSender showTournamentStatistics();
 	
-	public DataSender generateTournament();
+	public DataSender generateTournament(@RequestBody DataSender aDataRetrived);
 		
 }

@@ -41,7 +41,7 @@ public class UsersController extends BaseController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/newTournament", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public boolean generateTournamentForPlayers(@RequestBody List<String> aPlayerIds)
+	public boolean generateTournamentForPlayers(@RequestBody List<Integer> aPlayerIds)
 	{
 		//TODO Call to tournaments service to generate tournament
 		
