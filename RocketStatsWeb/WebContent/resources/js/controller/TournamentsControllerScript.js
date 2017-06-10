@@ -1,36 +1,17 @@
 $(document).ready(function (){
+	
 	updateNavigationBar();
 	
-	$('#rsModalUpdateMatch').on('show.bs.modal', function (event) {
-		var tMatchId = $(event.relatedTarget).data('element');
+	setUpModalEvent()
 		
-		$.ajax({
-			type : "POST",			
-			url : "tournaments",
-			data : {
-				matchId : tMatchId
-			},
-			dataType: "json",
-			success : function(aRetrivedMatchModel) {
-				setDynamicModalViewFromModel(aRetrivedMatchModel);
-			},
-			error : function(e) {
-				debugger;
-			}			
-		});	  
-		  
-	});
-		
-	$("#rsSubmitUpdateMatch").click(function(){
-		updateMatch();
-	});
+	setUpdateMatchClick()
 	
 });
 
+
 function updateNavigationBar(){
 	$('.nav li').eq(0).removeClass("active");
-	$('.nav li').eq(1).removeClass("active");
-	$('.nav li').eq(2).addClass("active");	
+	$('.nav li').eq(1).addClass("active");	
 };
 
 function setDynamicModalViewFromModel(aMatchModel){
@@ -131,4 +112,31 @@ function updateMatch(){
 		
 		}
 	});
+};
+
+function setUpdateMatchClick(){
+	$("#rsSubmitUpdateMatch").click(function(){
+		updateMatch();
+	});
+};
+
+function setUpModalEvent(){
+	$('#rsModalUpdateMatch').on('show.bs.modal', function (event) {
+		var tMatchId = $(event.relatedTarget).data('element');
+		
+		$.ajax({
+			type : "POST",			
+			url : "tournaments",
+			data : {
+				matchId : tMatchId
+			},
+			dataType: "json",
+			success : function(aRetrivedMatchModel) {
+				setDynamicModalViewFromModel(aRetrivedMatchModel);
+			},
+			error : function(e) {
+				debugger;
+			}			
+		});		  
+	});	
 };

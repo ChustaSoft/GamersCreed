@@ -39,7 +39,9 @@
 		</table>
 	</div>
 	
-	<div class="container col-md-offset-2">
+	<div class="row justify-content-center">
+		<div class="col-md-4">></div>
+	
         <div class="col-md-4">
         	<h2 class="text-primary">Pending <span class="small">Matches to play</span></h2>
 			<table class="table table-bordered">
@@ -75,7 +77,7 @@
         </div>
         
         <div class="col-md-4">	
-        <h2 class="text-primary">Results <span class="small">Matches already played</span></h2>            
+        	<h2 class="text-primary">Results <span class="small">Matches already played</span></h2>            
 			<table class="table table-bordered">
 				<thead>
 					<tr>
@@ -106,7 +108,9 @@
 					</sTag:forEach>
 				</sTag:if>
 			</table>	
-		</div>        	    
+		</div>
+		
+		<div class="col-md-4">></div>
 	</div>
 
 	<div class="modal fade" id="rsModalUpdateMatch" tabindex="-1" role="dialog" aria-hidden="true">

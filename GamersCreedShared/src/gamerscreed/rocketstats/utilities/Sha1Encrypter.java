@@ -8,32 +8,41 @@ import java.security.NoSuchAlgorithmException;
  * This class provides a method to return a hash in SHA1 of a String.
  *
  * @author: Xavi Rueda
- * @version 1.0, 5-10-2013 
+ * @version 1.1, 3-16-2017 
  */
 public class Sha1Encrypter {
 
-	public static String getHash(String message) {
-		MessageDigest md;
-		byte[] buffer, digest;
-		String hash;
+	public static String generateTokenForUser(String aUsername, String aPassword)
+	{
+		String tPasswordEncrypted = getHash(aPassword);
+		String tUsertoken = getHash(aUsername + tPasswordEncrypted);
 		
-		hash = new String();
-		buffer = message.getBytes();
+		return tUsertoken;
+	}
+	
+	
+	public static String getHash(String aMessage) 
+	{
+		MessageDigest tMessageDigest;
+		byte[] tBuffer, tDigest;
+		StringBuilder tGeneratedHash = new StringBuilder();
+		
+		tBuffer = aMessage.getBytes();
 		try {
-			md = MessageDigest.getInstance("SHA1");
-			md.update(buffer);
-			digest = md.digest();
+			tMessageDigest = MessageDigest.getInstance("SHA1");
+			tMessageDigest.update(tBuffer);
+			tDigest = tMessageDigest.digest();
 
-			for (byte aux : digest) {
-				int b = aux & 0xff;
-				if (Integer.toHexString(b).length() == 1)
-					hash += "0";
-				hash += Integer.toHexString(b);
+			for (byte iAux : tDigest) {
+				int iByte = iAux & 0xff;
+				if (Integer.toHexString(iByte).length() == 1)
+					tGeneratedHash.append("0");
+				tGeneratedHash.append(Integer.toHexString(iByte));
 			}
 		} 
 		catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-		return hash;
+		return tGeneratedHash.toString();
 	}
 }

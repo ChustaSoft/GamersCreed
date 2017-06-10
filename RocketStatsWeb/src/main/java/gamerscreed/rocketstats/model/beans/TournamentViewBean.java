@@ -1,4 +1,4 @@
-package gamerscreed.rocketstats.beans;
+package gamerscreed.rocketstats.model.beans;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,19 +27,16 @@ public class TournamentViewBean {
 	public Date getDateStarted() {
 		return dateStarted;
 	}
+	
+	public String getFormattedDateStarted()
+	{
+		return FormatterHelper.getFormattedDate(this.dateStarted);
+	}
 
 	public void setDateStarted(Date dateStarted) {
 		this.dateStarted = dateStarted;
 	}
 	
-	public String getFormattedDateStarted(){
-		return FormatterHelper.getFormattedDate(this.dateStarted);
-	}
-	
-	public String getFormattedDateFinished(){
-		return FormatterHelper.getFormattedDate(this.dateFinished);
-	}
-
 	public Date getDateFinished() {
 		return dateFinished;
 	}

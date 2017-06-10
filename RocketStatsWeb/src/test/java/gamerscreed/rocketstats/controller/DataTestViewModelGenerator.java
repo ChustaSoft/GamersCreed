@@ -4,22 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import gamerscreed.rocketstats.beans.MatchPlayerStatisticViewBean;
-import gamerscreed.rocketstats.beans.MatchViewModel;
-import gamerscreed.rocketstats.beans.PlayerStatisticGridViewModel;
-import gamerscreed.rocketstats.beans.PlayerViewBean;
-import gamerscreed.rocketstats.beans.TournamentViewBean;
-import gamerscreed.rocketstats.components.UserSessionObject;
+import gamerscreed.rocketstats.model.beans.MatchPlayerStatisticViewBean;
+import gamerscreed.rocketstats.model.beans.MatchViewModel;
+import gamerscreed.rocketstats.model.beans.PlayerStatisticGridViewModel;
+import gamerscreed.rocketstats.model.beans.PlayerViewBean;
+import gamerscreed.rocketstats.model.beans.TournamentViewBean;
 
 public class DataTestViewModelGenerator {
-
-	public static UserSessionObject getTestUserSessionObject(){
-		UserSessionObject testPlayer = new UserSessionObject();
-		testPlayer.setUserName("XAVI");
-		testPlayer.setSessionId(java.util.UUID.randomUUID());
-		
-		return testPlayer;
-	}
 	
 	public static List<PlayerViewBean> getTestPlayerArray(){
 		List<PlayerViewBean> tmpPlayerList = new ArrayList<PlayerViewBean>();

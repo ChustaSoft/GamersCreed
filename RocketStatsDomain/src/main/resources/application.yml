@@ -1,0 +1,18 @@
+spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+      
+jwt:
+  header: Authorization
+  secret: CSSoft
+  expiration: 604800
+  route:
+    authentication:
+      path: login
+      refresh: auto
+
+logging:
+  level:
+    org.springframework: 
+      security: debug

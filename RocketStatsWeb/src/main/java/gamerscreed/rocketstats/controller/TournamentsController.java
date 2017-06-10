@@ -1,5 +1,9 @@
 package gamerscreed.rocketstats.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,8 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import gamerscreed.rocketstats.beans.MatchViewModel;
 import gamerscreed.rocketstats.controller.base.BaseController;
+import gamerscreed.rocketstats.model.beans.MatchViewModel;
 
 
 @Controller
@@ -21,11 +25,11 @@ public class TournamentsController extends BaseController {
 	
 	@Override
 	@RequestMapping(method=RequestMethod.GET)
-	public ModelAndView viewIndex() 
+	public ModelAndView viewIndex(HttpServletRequest aRequest, HttpServletResponse aResponse, HttpSession aSession) 
 	{
 		ModelAndView tViewModel = new ModelAndView("TournamentsView");
 	
-		tViewModel.addObject("tournamentViewBean", DataTestViewModelGenerator.getTestTournamentView());		
+		tViewModel.addObject("tournamentViewBean", DataTestViewModelGenerator.getTestTournamentView());
 		return tViewModel;
 	}
 	
@@ -33,7 +37,7 @@ public class TournamentsController extends BaseController {
 	@RequestMapping(method=RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public MatchViewModel getMatchModelFromGivenId(@RequestParam("matchId") int aMatchId)
 	{
-		return DataTestViewModelGenerator.getTestTournamentView().getUndoneMatchViewModelList().get(aMatchId);		
+		return DataTestViewModelGenerator.getTestTournamentView().getUndoneMatchViewModelList().get(aMatchId);
 	}
 	
 	@ResponseBody
@@ -42,7 +46,7 @@ public class TournamentsController extends BaseController {
 	{				
 		//TODO: Update match
 		
-		return viewIndex();
+		return viewIndex(null, null, null);
 	}
 
 }

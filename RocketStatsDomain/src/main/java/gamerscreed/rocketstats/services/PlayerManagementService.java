@@ -1,11 +1,15 @@
 package gamerscreed.rocketstats.services;
 
-import org.springframework.web.bind.annotation.RequestParam;
+import java.util.List;
 
-import gamerscreed.profiler.structures.DataSender;
+import gamerscreed.rocketstats.model.beans.PlayerViewBean;
 
 public interface PlayerManagementService {
 
-	public DataSender loginPlayer(@RequestParam(value="dataObject") DataSender aData);
+//	public PlayerViewBean getPlayer(@RequestBody PlayerViewBean aData);
+
+	public PlayerViewBean getPlayer(int anId);
+	
+	public List<PlayerViewBean> getAllPlayers();
 	
 }

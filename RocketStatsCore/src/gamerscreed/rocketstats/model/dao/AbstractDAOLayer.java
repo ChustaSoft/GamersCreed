@@ -23,7 +23,7 @@ public abstract class AbstractDAOLayer<T> {
 	}
 		
 	/**
-	 * Begin transaction.
+	 * Begin transaction.ASasA
 	 */
 	protected void beginTransaction(){
 		if(!entityManager.getTransaction().isActive())
@@ -33,7 +33,7 @@ public abstract class AbstractDAOLayer<T> {
 	/**
 	 * Commit transaction.
 	 */
-	protected void finishtTransaction(){
+	protected void finishTransaction(){
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}
@@ -42,7 +42,7 @@ public abstract class AbstractDAOLayer<T> {
 		try{
 			this.beginTransaction();
 			this.entityManager.persist(anObject);
-			this.finishtTransaction();
+			this.finishTransaction();
 			return true;
 		}
 		catch(Exception e){
@@ -57,7 +57,7 @@ public abstract class AbstractDAOLayer<T> {
 			for(Object iObject : anObjectList){
 				this.entityManager.persist(iObject);
 			}
-			this.finishtTransaction();
+			this.finishTransaction();
 			return true;
 		}
 		catch(Exception e){
@@ -70,7 +70,7 @@ public abstract class AbstractDAOLayer<T> {
 		try{
 			this.beginTransaction();
 			this.entityManager.merge(anObject);
-			this.finishtTransaction();
+			this.finishTransaction();
 			return true;
 		}
 		catch(Exception e){
@@ -83,7 +83,7 @@ public abstract class AbstractDAOLayer<T> {
 		try{
 			this.beginTransaction();
 			this.entityManager.remove(anObject);
-			this.finishtTransaction();
+			this.finishTransaction();
 			return true;			
 		}
 		catch(Exception e){

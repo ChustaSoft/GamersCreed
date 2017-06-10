@@ -1,15 +1,18 @@
 package gamerscreed.rocketstats.services;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestBody;
 
 import gamerscreed.profiler.structures.DataSender;
+import gamerscreed.rocketstats.model.beans.TournamentViewBean;
 
 public interface TournamentManagementService {
 
-	public DataSender updateMatch();
+	public DataSender<TournamentViewBean> updateMatch();
 	
-	public DataSender showTournamentStatistics();
+	public DataSender<TournamentViewBean> showTournamentStatistics();
 	
-	public DataSender generateTournament(@RequestBody DataSender aDataRetrived);
+	public DataSender<TournamentViewBean> generateTournament(@RequestBody DataSender<List<Integer>> aDataRetrived);
 		
 }

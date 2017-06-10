@@ -1,20 +1,21 @@
 package gamerscreed.profiler.structures;
 
-import java.util.List;
+import java.io.Serializable;
 
 import gamerscreed.profiler.enums.RoleAction;
 
-public class DataSender {
+public class DataSender<T> implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
+	private T dataObject;	
 	private boolean success;
 	private String operationMessage;
-	private Object dataObject;
-	private List<Exception> exceptionsList;
 	private RoleAction role;
 	
 	public DataSender() {}
 	
-	public DataSender(Object anObject){
+	public DataSender(T anObject){
 		dataObject = anObject;
 	}
 	
@@ -34,20 +35,12 @@ public class DataSender {
 		this.operationMessage = operationMessage;
 	}
 	
-	public Object getDataObject() {
+	public T getDataObject() {
 		return dataObject;
 	}
 	
-	public void setDataObject(Object dataObject) {
+	public void setDataObject(T dataObject) {
 		this.dataObject = dataObject;
-	}
-	
-	public List<Exception> getExceptionsList() {
-		return exceptionsList;
-	}
-	
-	public void setExceptionsList(List<Exception> exceptionsList) {
-		this.exceptionsList = exceptionsList;
 	}
 
 	public RoleAction getRole() {
@@ -56,7 +49,6 @@ public class DataSender {
 
 	public void setRole(RoleAction role) {
 		this.role = role;
-	}
-	
+	}	
 
 }

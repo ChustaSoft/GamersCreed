@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import gamerscreed.profiler.structures.DataSender;
 import gamerscreed.rocketstats.domain.PlayerBusiness;
 import gamerscreed.rocketstats.domain.TournamentBusiness;
+import gamerscreed.rocketstats.model.beans.TournamentViewBean;
 import gamerscreed.rocketstats.model.entities.Player;
 import gamerscreed.rocketstats.model.entities.Tournament;
 import gamerscreed.rocketstats.services.TournamentManagementService;
@@ -21,23 +22,23 @@ public class TournamentManagementServiceRest implements TournamentManagementServ
 	private TournamentBusiness _tournamentBusinessLayer; 
 	
 	@Override
-	public DataSender updateMatch() {
+	public DataSender<TournamentViewBean> updateMatch() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public DataSender showTournamentStatistics() {
+	public DataSender<TournamentViewBean> showTournamentStatistics() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public DataSender generateTournament(@RequestBody DataSender aDataRetrived) {
-		DataSender tDataSenderObj = new DataSender(); 
+	public DataSender<TournamentViewBean> generateTournament(@RequestBody DataSender<List<Integer>> aDataRetrived) {
+		DataSender<TournamentViewBean> tDataSenderObj = new DataSender<TournamentViewBean>(); 
 		
 		try{
-			List<Integer> tPlayerIds =  (List<Integer>) aDataRetrived.getDataObject();
+			List<Integer> tPlayerIds =  aDataRetrived.getDataObject();
 			List<Player> tPlayerList = _playerBusinessLayer.getPlayersByIds(tPlayerIds);
 			
 			Tournament tGeneratedTournament = _tournamentBusinessLayer.generateTournament(tPlayerList, Calendar.getInstance().getTime());
@@ -52,7 +53,7 @@ public class TournamentManagementServiceRest implements TournamentManagementServ
 			}
 		}
 		catch(Exception e){
-			tDataSenderObj.getExceptionsList().add(e);
+			tDataSenderObj.setOperationMessage("Error generating tournament : " + e.getMessage());
 		}	
 		
 		return tDataSenderObj;

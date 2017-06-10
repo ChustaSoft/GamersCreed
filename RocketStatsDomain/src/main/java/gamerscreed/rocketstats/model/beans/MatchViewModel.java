@@ -1,4 +1,4 @@
-package gamerscreed.rocketstats.beans;
+package gamerscreed.rocketstats.model.beans;
 
 import java.io.Serializable;
 import java.util.ArrayList;

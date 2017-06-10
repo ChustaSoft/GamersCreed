@@ -1,18 +1,12 @@
 package gamerscreed.rocketstats.controller.base;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.web.servlet.ModelAndView;
 
-import gamerscreed.rocketstats.utilities.WebServiceControllerCallDispatcher;
-
 public abstract class BaseController {
-
-	protected WebServiceControllerCallDispatcher callDispatcher;
 	
-	protected final String SessionConst = "userSession";
-	
-	public BaseController(){
-		callDispatcher = new WebServiceControllerCallDispatcher();
-	}
-	
-	public abstract ModelAndView viewIndex();	
+	public abstract ModelAndView viewIndex(HttpServletRequest aRequest, HttpServletResponse aResponse, HttpSession aSession);
 }

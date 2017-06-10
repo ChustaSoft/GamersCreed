@@ -1,4 +1,4 @@
-package gamerscreed.rocketstats.beans;
+package gamerscreed.profiler.model.beans;
 
 public class LoginPlayerViewBean {
 

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<security:http auto-config="true">
+	<security:intercept-url pattern="/**" access="ROLE_USER"/>
+</security:http>

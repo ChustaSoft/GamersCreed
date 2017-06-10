@@ -2,11 +2,11 @@ package gamerscreed.rocketstats.domain;
 
 import java.util.List;
 
+import org.springframework.security.core.userdetails.UserDetailsService;
+
 import gamerscreed.rocketstats.model.entities.Player;
 
-public interface PlayerBusiness {
-	
-	public Player getByUsernameAndToken(String aUsername, String aPassword);
+public interface PlayerBusiness extends UserDetailsService {
 	
 	public Player updatePlayer();
 	
